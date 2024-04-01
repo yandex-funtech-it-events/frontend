@@ -29,9 +29,11 @@
     "@/icons/*": [
       "./public/icons/*"
     ],
-    "@/assets/*": [
-      "./src/images/*",
-      "./src/icons/*"
+    "@/assets/images/*": [
+      "./src/assets/images/*",
+    ],
+    "@/assets/icons/*": [
+       "./src/assets/icons/*"
     ],
     "@/pages/*": [
       "./src/pages/*"
