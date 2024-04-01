@@ -34,7 +34,38 @@ const theme = createTheme({
         },
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          padding: '5px',
+        },
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          '@media (min-width: 600px)': {
+            padding: '0 16px',
+          },
+          '@media (min-width: 1200px)': {
+            maxWidth: 1440,
+            padding: '0 32px',
+          },
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          '@media (min-width: 600px)': {
+            minHeight: 'auto',
+            padding: 0,
+          },
+        },
+      },
+    },
   },
+  spacing: 4,
 });
 
 export default theme;
