@@ -1,10 +1,13 @@
-import Header from '@/components/header';
+import Hero from './components/hero.tsx';
+import { Container } from '@mui/material';
+import Header from '../../components/header';
 
 const HomePage = () => {
   return (
-    <>
+    <Container>
       <Header />
-    </>
+      <Hero />
+    </Container>
   );
 };
 
