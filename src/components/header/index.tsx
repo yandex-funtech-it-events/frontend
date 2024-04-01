@@ -5,7 +5,7 @@ import Logo from '../logo.tsx';
 
 const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box pt={4} sx={{ flexGrow: 1 }}>
       <AppBar elevation={0} position="static" color="transparent">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Logo />
