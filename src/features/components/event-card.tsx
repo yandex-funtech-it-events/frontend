@@ -6,9 +6,10 @@ import { useState } from 'react';
 type EventCardProps = {
   bgImage: string;
   fullWidth?: boolean;
+  eventSize?: 'sm' | 'md';
 };
 
-const EventCard = ({ bgImage, fullWidth = false }: EventCardProps) => {
+const EventCard = ({ bgImage, fullWidth = false, eventSize = 'sm' }: EventCardProps) => {
   const [hover, setHover] = useState(false);
 
   return (
@@ -17,7 +18,7 @@ const EventCard = ({ bgImage, fullWidth = false }: EventCardProps) => {
       display="flex"
       flexDirection="column"
       borderRadius={5}
-      maxWidth={fullWidth ? '100%' : 331}
+      maxWidth={fullWidth ? '100%' : eventSize === 'sm' ? 331 : 581}
       width={1}
       minHeight={415}
       height={1}

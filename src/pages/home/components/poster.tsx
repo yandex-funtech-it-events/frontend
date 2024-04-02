@@ -18,13 +18,13 @@ const Poster = () => {
         {posterImages.map((item, index) => {
           if (index === 0) {
             return (
-              <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+              <ImageListItem key={item.title} cols={item.cols || 1} rows={item.rows || 1}>
                 <BannerAds />
               </ImageListItem>
             );
           } else {
             return (
-              <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+              <ImageListItem key={item.title} cols={item.cols || 1} rows={item.rows || 1}>
                 <EventCard bgImage={item.img} fullWidth />
               </ImageListItem>
             );

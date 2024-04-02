@@ -5,6 +5,7 @@ import Banner from './components/banner.tsx';
 import UpcomingEvents from './components/upcoming-events.tsx';
 import Poster from './components/poster.tsx';
 import TopThree from './components/top-three.tsx';
+import LikedEvents from './components/liked-events.tsx';
 
 const HomePage = () => {
   return (
@@ -20,6 +21,7 @@ const HomePage = () => {
         <Button style={{ marginTop: '40px' }}>Загрузить еще события</Button>
 
         <TopThree />
+        <LikedEvents />
       </Stack>
     </Container>
   );
