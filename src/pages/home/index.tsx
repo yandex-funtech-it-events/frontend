@@ -4,6 +4,7 @@ import Hero from './components/hero.tsx';
 import Banner from './components/banner.tsx';
 import UpcomingEvents from './components/upcoming-events.tsx';
 import Poster from './components/poster.tsx';
+import TopThree from './components/top-three.tsx';
 
 const HomePage = () => {
   return (
@@ -17,6 +18,8 @@ const HomePage = () => {
         <Poster />
 
         <Button style={{ marginTop: '40px' }}>Загрузить еще события</Button>
+
+        <TopThree />
       </Stack>
     </Container>
   );
