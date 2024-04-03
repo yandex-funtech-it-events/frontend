@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import EventCard from '../../../features/components/event-card.tsx';
+import EventCard from '../../../features/event/components/event-card.tsx';
 import event from '@/assets/images/event_card.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
