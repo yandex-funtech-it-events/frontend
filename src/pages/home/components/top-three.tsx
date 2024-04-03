@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import EventList from '../../../features/components/event-list.tsx';
+import EventList from '../../../features/event/components/event-list.tsx';
 import { posterImages } from '../../../libs/constants.ts';
 
 const TopThree = () => {

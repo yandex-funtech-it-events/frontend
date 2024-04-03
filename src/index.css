@@ -1,6 +1,7 @@
 #root {
     max-width: 1440px;
     margin: 0 auto;
+    background: gray;
 }
 
 .display-3-string {
@@ -25,4 +26,22 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@keyframes textRunner {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
 }

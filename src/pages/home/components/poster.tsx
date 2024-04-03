@@ -1,6 +1,6 @@
 import { Box, ImageList, ImageListItem, Typography } from '@mui/material';
 import { posterImages } from '../../../libs/constants.ts';
-import EventCard from '../../../features/components/event-card.tsx';
+import EventCard from '../../../features/event/components/event-card.tsx';
 import BannerAds from './banner-ads.tsx';
 
 const Poster = () => {
