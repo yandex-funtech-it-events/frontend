@@ -1,7 +1,10 @@
+body {
+    background-color: #F4F1ED !important;
+}
+
 #root {
     max-width: 1440px;
     margin: 0 auto;
-    background: gray;
 }
 
 .display-3-string {
@@ -44,4 +47,25 @@
     to {
         transform: rotate(360deg)
     }
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    width: 16%;
+    bottom: 40px;
+}
+
+.swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 12px;
+    color: #F4F1ED;
+    opacity: .5;
+}
+
+.swiper-pagination-bullet-active {
+    color: white;
+    opacity: 1;
+    background: white;
 }

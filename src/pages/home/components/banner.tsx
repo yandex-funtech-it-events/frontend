@@ -1,33 +1,31 @@
-import { Box, ImageList, ImageListItem } from '@mui/material';
-import banner from '@/assets/images/Banner.png';
-import Carousel from 'react-material-ui-carousel';
-import BannerAds from './banner-ads.tsx';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Scrollbar } from 'swiper/modules';
+import BannerCard from './banner-card.tsx';
+import { Box } from '@mui/material';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const Banner = () => {
   return (
-    <Carousel indicators={false}>
-      {Array.from({ length: 3 }).map((_, index) => (
-        <Box
-          key={index}
-          component="section"
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          gap={4}
-          borderRadius={4}
-        >
-          <BannerAds />
-
-          <Box borderRadius={4} maxWidth={680} width={1}>
-            <ImageList sx={{ width: '100%', margin: '0', padding: 0 }} cols={1}>
-              <ImageListItem>
-                <img src={banner} alt="banner" loading="lazy" />
-              </ImageListItem>
-            </ImageList>
-          </Box>
-        </Box>
-      ))}
-    </Carousel>
+    <Box width={1} pb={20}>
+      <Swiper
+        modules={[Pagination, Scrollbar]}
+        pagination={{
+          clickable: true,
+        }}
+        slidesPerView={1}
+        width={1440}
+      >
+        {Array.from({ length: 6 }).map((_, index) => (
+          <SwiperSlide key={index}>
+            <BannerCard isSlider />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Box>
   );
 };
 

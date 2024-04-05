@@ -1,12 +1,12 @@
 import { Box, ImageList, ImageListItem, Typography } from '@mui/material';
 import { posterImages } from '../../../libs/constants.ts';
 import EventCard from '../../../features/event/components/event-card.tsx';
-import BannerAds from './banner-ads.tsx';
+import BannerCard from './banner-card.tsx';
 
 const Poster = () => {
   return (
     <Box component="section" display="flex" flexDirection="column" gap={13}>
-      <Typography variant="h2">Афиша</Typography>
+      <Typography variant="h2">Все события</Typography>
 
       <ImageList
         variant="quilted"
@@ -19,7 +19,7 @@ const Poster = () => {
           if (index === 0) {
             return (
               <ImageListItem key={item.title} cols={item.cols || 1} rows={item.rows || 1}>
-                <BannerAds />
+                <BannerCard />
               </ImageListItem>
             );
           } else {
