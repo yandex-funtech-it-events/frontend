@@ -25,7 +25,7 @@ const EventSection = ({
     <Box component="section" display="flex" flexDirection="column" gap={13}>
       <Link
         href={href}
-        color="text.secondary"
+        color="text.primary"
         underline="none"
         display="flex"
         alignItems="center"
@@ -67,7 +67,7 @@ const EventSection = ({
               onClick={() => setHowManyEventsShow((prev) => prev + 5)}
               style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
             >
-              Загрузить еще события <ExpandMoreIcon fontSize="large" />
+              загрузить еще <ExpandMoreIcon fontSize="medium" />
             </Button>
           )}
         </Stack>

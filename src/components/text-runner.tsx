@@ -4,7 +4,8 @@ const TextRunner = ({ text, duration = 25 }: { text: string; duration?: number }
   return (
     <Box width={1} sx={{ overflow: 'hidden' }}>
       <Typography
-        variant="body1"
+        variant="h2"
+        color="text.secondary"
         sx={{ whiteSpace: 'nowrap', animation: `textRunner ${duration}s linear infinite` }}
       >
         {text}

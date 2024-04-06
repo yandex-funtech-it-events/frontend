@@ -38,7 +38,7 @@ const EventCard = ({ bgImage, fullWidth = false, eventSize = 'sm' }: EventCardPr
       onMouseLeave={() => setHover(false)}
     >
       <Box display="flex" justifyContent="space-between" px={4} py={2} sx={{ flexGrow: '1' }}>
-        <Chip label="Регистрация открыта" />
+        <Chip size="medium" label="Регистрация открыта" sx={{ color: 'white' }} />
         <IconButton sx={{ alignSelf: 'start' }}>
           <FavoriteBorderIcon
             sx={{
@@ -60,10 +60,10 @@ const EventCard = ({ bgImage, fullWidth = false, eventSize = 'sm' }: EventCardPr
             opacity: 90,
           }}
         >
-          <Typography variant="body1" className="display-1-string">
+          <Typography variant="subtitle2" className="display-1-string">
             10.08.2024 {bull} оффлайн/онлайн {bull} г. Новгород
           </Typography>
-          <Typography variant="h5" className="display-3-string">
+          <Typography variant="h6" className="display-3-string">
             Форум FutureTech: Погружение в инновации завтрашнего дня
           </Typography>
           <Collapse in={hover} timeout="auto">
