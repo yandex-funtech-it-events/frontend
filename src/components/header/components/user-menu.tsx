@@ -1,4 +1,4 @@
-import { Box, IconButton, Menu, MenuItem, Typography } from '@mui/material';
+import { Box, Divider, IconButton, Menu, MenuItem, Typography } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useState } from 'react';
 
@@ -48,8 +48,15 @@ const UserMenu = () => {
         open={isOpen}
         onClose={handleCloseMenu}
       >
-        <MenuItem onClick={handleCloseMenu}>Profile</MenuItem>
-        <MenuItem onClick={handleCloseMenu}>My account</MenuItem>
+        <MenuItem onClick={handleCloseMenu}>Мои события</MenuItem>
+        <MenuItem onClick={handleCloseMenu}>Материалы</MenuItem>
+        <MenuItem onClick={handleCloseMenu}>Общение</MenuItem>
+        <MenuItem onClick={handleCloseMenu}>Уведомления</MenuItem>
+        <MenuItem onClick={handleCloseMenu}>Настройки профиля</MenuItem>
+
+        <Divider />
+
+        <MenuItem onClick={handleCloseMenu}>Выйти</MenuItem>
       </Menu>
     </>
   );

@@ -104,6 +104,9 @@ const TopTen = ({
               left: '-15px',
               zIndex: '99',
               backgroundColor: 'rgba(255, 255, 255, 0.12)',
+              ':hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.20)',
+              },
             }}
           >
             <KeyboardBackspaceIcon />
@@ -117,6 +120,9 @@ const TopTen = ({
               right: '-15px',
               zIndex: '99',
               backgroundColor: 'rgba(255, 255, 255, 0.12)',
+              ':hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.20)',
+              },
             }}
           >
             <EastIcon />

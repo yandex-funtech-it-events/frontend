@@ -39,6 +39,12 @@ declare module '@mui/material/styles' {
   }
 }
 
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    link: true;
+  }
+}
+
 const LinkBehavior = forwardRef<
   HTMLAnchorElement,
   Omit<RouterLinkProps, 'to'> & { href: RouterLinkProps['to'] }
@@ -63,6 +69,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          boxShadow: 'none',
           '&:hover': {
             boxShadow: ' 0px 0px 20px 0px rgba(0, 0, 0, 0.10)',
             backgroundColor: '#FF6E2C',
@@ -90,14 +97,23 @@ const theme = createTheme({
             letterSpacing: '0.4px',
           },
         },
-      ],
-    },
-    MuiIconButton: {
-      styleOverrides: {
-        root: {
-          padding: '5px',
+        {
+          props: { variant: 'link' },
+          style: {
+            border: '0px solid  rgba(0, 0, 0, 0.12)',
+            minHeight: '40px',
+            fontWeight: 500,
+            fontSize: '14px',
+            lineHeight: '26px',
+            letterSpacing: '0.4px',
+            color: 'rgba(0, 0, 0, 0.60)',
+            ':hover': {
+              background: 'rgba(0, 0, 0, 0.04)',
+              color: 'rgba(0, 0, 0, 0.87)',
+            },
+          },
         },
-      },
+      ],
     },
     MuiChip: {
       variants: [
