@@ -4,38 +4,14 @@ import { createTheme } from '@mui/material';
 import { forwardRef } from 'react';
 
 declare module '@mui/material/styles' {
-  interface TypeText {
-    tertiary?: string;
-  }
-
-  interface Palette {
-    text: TypeText;
-  }
-
-  interface PaletteOptions {
-    text?: Partial<TypeText> | undefined;
-  }
-}
-
-declare module '@mui/material/styles' {
   interface TypeBackground {
     black: string;
     gray: string;
     light: string;
   }
-}
 
-declare module '@mui/material/styles' {
-  interface Theme {
-    palette: PaletteOptions & {
-      text: {
-        tertiary: string;
-      };
-    };
-  }
-
-  interface ThemeOptions {
-    palette?: PaletteOptions;
+  interface TypeText {
+    tertiary: string;
   }
 }
 
@@ -151,6 +127,7 @@ const theme = createTheme({
         {
           props: { size: 'medium' },
           style: {
+            height: '40px',
             fontWeight: 400,
             fontSize: '16px',
             lineHeight: '24px',
@@ -158,6 +135,16 @@ const theme = createTheme({
           },
         },
       ],
+      styleOverrides: {
+        root: {
+          height: 'fit-content',
+          borderRadius: '100px',
+        },
+        label: {
+          paddingTop: '4px',
+          paddingBottom: ' 4px',
+        },
+      },
     },
     MuiInput: {
       styleOverrides: {
@@ -189,6 +176,25 @@ const theme = createTheme({
             minHeight: 'auto',
             padding: 0,
           },
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          fontFamily: ['Roboto', 'sans-serif'].join(','),
+          fontSize: '16px',
+          fontWeight: 400,
+          lineHeight: '24px',
+          letterSpacing: '0.15px',
+          color: 'rgba(0, 0, 0, 0.60)',
+        },
+      },
+    },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          width: '100%',
         },
       },
     },

@@ -21,8 +21,8 @@ const BannerCard = ({ isSlider = false }: { isSlider?: boolean }) => {
     >
       <Box display="flex" flexDirection="column" gap={5}>
         <Box display="flex" gap={2}>
-          <Chip size="medium" label="Chip Filled" sx={{ color: 'white' }} />
-          <Chip size="medium" label="Chip Filled" sx={{ color: 'white' }} />
+          <Chip size="small" label="Chip Filled" sx={{ color: 'white' }} />
+          <Chip size="small" label="Chip Filled" sx={{ color: 'white' }} />
         </Box>
 
         <Box display="flex" flexDirection="column" gap={3} sx={{ width: '50%' }}>
