@@ -33,24 +33,10 @@ const Footer = () => {
         </Box>
 
         <Box display="flex" alignItems="center" gap={5}>
-          <Button
-            href="/events"
-            variant="link"
-            sx={{
-              background: '#E0E0E0',
-              color: 'rgba(0, 0, 0, 0.87)',
-            }}
-          >
+          <Button href="/events" color="secondary">
             Предложить событие
           </Button>
-          <Button
-            href="/hekp"
-            variant="link"
-            sx={{
-              border: '1px solid rgba(0, 0, 0, 0.87)',
-              color: 'rgba(0, 0, 0, 0.87)',
-            }}
-          >
+          <Button href="/help" variant="outlined">
             Поддержка
           </Button>
         </Box>

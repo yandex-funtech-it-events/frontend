@@ -98,14 +98,36 @@ const theme = createTheme({
           },
         },
         {
+          props: { color: 'secondary' },
+          style: {
+            background: '#E0E0E0',
+            color: 'rgba(0, 0, 0, 0.87)',
+            padding: '6px 16px',
+            ':hover': {
+              background: '#F5F5F5',
+            },
+          },
+        },
+        {
+          props: { variant: 'outlined' },
+          style: {
+            border: '1px solid rgba(0, 0, 0, 0.87)',
+            color: 'rgba(0, 0, 0, 0.87)',
+            ':hover': {
+              background: '#F5F5F5',
+              border: '1px solid rgba(0, 0, 0, 0.87)',
+            },
+          },
+        },
+        {
           props: { variant: 'link' },
           style: {
             border: '0px solid  rgba(0, 0, 0, 0.12)',
             minHeight: '40px',
             fontWeight: 500,
-            fontSize: '14px',
+            fontSize: '15px',
             lineHeight: '26px',
-            letterSpacing: '0.4px',
+            letterSpacing: '0.46px',
             color: 'rgba(0, 0, 0, 0.60)',
             ':hover': {
               background: 'rgba(0, 0, 0, 0.04)',
@@ -189,11 +211,11 @@ const theme = createTheme({
       letterSpacing: '1px',
     },
     h3: {
-      fontFamily: ['Montserrat', 'sans-serif'].join(','),
-      fontWeight: 800,
-      fontSize: '40px',
-      lineHeight: '120%',
-      letterSpacing: '0.46px',
+      fontFamily: ['Inter', 'sans-serif'].join(','),
+      fontWeight: 600,
+      fontSize: '32px',
+      lineHeight: '130%',
+      letterSpacing: '1px',
     },
     h6: {
       fontWeight: 600,
@@ -212,6 +234,9 @@ const theme = createTheme({
       fontSize: '16px',
       lineHeight: '150%',
       letterSpacing: '0.15px',
+    },
+    button: {
+      fontFamily: ['Roboto', 'sans-serif'].join(','),
     },
   },
   palette: {

@@ -13,7 +13,18 @@ const BannerRegister = () => {
         backgroundColor: 'white',
       }}
     >
-      <Typography variant="h2">
+      <Typography
+        variant="h2"
+        color="text.secondary"
+        sx={{
+          width: '88%',
+          fontWeight: 800,
+          fontSize: '40px',
+          lineHeight: '120%',
+          letterSpacing: '0.46px',
+          fontFamily: 'Montserrat, sans-serif',
+        }}
+      >
         Зарегистрируйся на Meetup и получи доступ к 200 событий в сфере IT
       </Typography>
       <Button
