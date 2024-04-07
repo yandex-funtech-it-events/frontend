@@ -38,7 +38,7 @@ const EventCard = ({ bgImage, fullWidth = false, eventSize = 'sm' }: EventCardPr
       onMouseLeave={() => setHover(false)}
     >
       <Box display="flex" justifyContent="space-between" px={4} py={2} sx={{ flexGrow: '1' }}>
-        <Chip size="medium" label="Регистрация открыта" sx={{ color: 'white' }} />
+        <Chip size="small" label="Регистрация открыта" sx={{ color: 'white' }} />
         <IconButton sx={{ alignSelf: 'start' }}>
           <FavoriteBorderIcon
             sx={{
