@@ -7,7 +7,7 @@ import pic from '../../../../../assets/images/single_event_info.png';
 
 const InfoCard: React.FC = () => {
   return (
-    <Box sx={{ border: '1px dashed red', padding: 0, position: 'relative' }}>
+    <Box sx={{ padding: 0, position: 'relative' }}>
       <img src={pic as unknown as string} alt="Usual image" style={{ display: 'block' }} />
 
       <IconButton sx={{ position: 'absolute', right: 20, top: 0 }}>

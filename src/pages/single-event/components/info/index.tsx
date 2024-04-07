@@ -12,7 +12,7 @@ const Info: React.FC = () => {
       gap={3}
       sx={{ border: '1px dashed grey', marginTop: '100px' }}
     >
-      <Box sx={{ border: '1px dashed red', width: '50%' }} display="flex" flexDirection="column">
+      <Box sx={{ width: '50%' }} display="flex" flexDirection="column">
         <InfoTop />
         <InfoAbout />
       </Box>

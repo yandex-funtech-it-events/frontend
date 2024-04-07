@@ -1,18 +1,14 @@
 import React from 'react';
 
-import { Box, Typography, Chip, Button } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
+
+import Chips from '../../chips';
 
 const InfoAbout: React.FC = () => {
-  const mocChipsArray = ['теги', 'теги', 'теги', 'теги', 'теги', 'теги', 'теги'];
-
   return (
     <Box>
       <Typography variant="h2">Дизайн выходные</Typography>
-      <Box display="flex" mt={3} mb={3}>
-        {mocChipsArray.map((chip, i) => (
-          <Chip label={chip} key={i} />
-        ))}
-      </Box>
+      <Chips />
       <Typography sx={{ height: '168px', marginBottom: '50px' }}>Описание мероприятия</Typography>
 
       <Button
