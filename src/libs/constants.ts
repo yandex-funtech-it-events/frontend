@@ -36,3 +36,22 @@ export const posterImages = [
     title: 'Fern',
   },
 ];
+
+export const mockInfoArray = ['28.04.24-29.04.24', 'Нижний Новгород', 'Оффлайн/Онлайн'];
+
+export const mockChipsArray = ['теги', 'теги', 'теги', 'теги', 'теги', 'теги', 'теги'];
+
+export const benefitsMockData = [
+  {
+    number: 30,
+    description: 'Описание преимущества',
+  },
+  {
+    number: 30,
+    description: 'Описание преимущества',
+  },
+  {
+    number: 30,
+    description: 'Описание преимущества',
+  },
+];

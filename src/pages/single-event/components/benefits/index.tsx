@@ -1,23 +1,9 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import BenefitsCard from './components/benefits-card';
+import { benefitsMockData } from '../../../../libs/constants';
 
 const Benefits: React.FC = () => {
-  const benefitsMockData = [
-    {
-      number: 30,
-      description: 'Описание преимущества',
-    },
-    {
-      number: 30,
-      description: 'Описание преимущества',
-    },
-    {
-      number: 30,
-      description: 'Описание преимущества',
-    },
-  ];
-
   return (
     <Box
       component="section"

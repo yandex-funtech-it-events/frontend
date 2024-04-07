@@ -7,9 +7,13 @@ import Chips from '../../chips';
 const InfoAbout: React.FC = () => {
   return (
     <Box>
-      <Typography variant="h2">Дизайн выходные</Typography>
+      <Typography variant="h2" mb={3}>
+        Дизайн выходные
+      </Typography>
       <Chips />
-      <Typography sx={{ height: '168px', marginBottom: '50px' }}>Описание мероприятия</Typography>
+      <Typography sx={{ height: '168px', marginBottom: '50px' }} mt={3}>
+        Описание мероприятия
+      </Typography>
 
       <Button
         variant="contained"
@@ -19,6 +23,8 @@ const InfoAbout: React.FC = () => {
           padding: '32px',
           width: '100%',
           background: '#FF4D00',
+          letterSpacing: '1px',
+          textTransform: 'uppercase',
         }}
       >
         Зарегистрироваться

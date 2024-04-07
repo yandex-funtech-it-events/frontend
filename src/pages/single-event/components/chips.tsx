@@ -1,12 +1,11 @@
 import React from 'react';
 
 import { Box, Chip } from '@mui/material';
+import { mockChipsArray } from '../../../libs/constants';
 
 const Chips: React.FC = () => {
-  const mockChipsArray = ['теги', 'теги', 'теги', 'теги', 'теги', 'теги', 'теги'];
-
   return (
-    <Box display="flex" mt={3} mb={3}>
+    <Box display="flex">
       {mockChipsArray.map((chip, i) => (
         <Chip label={chip} key={i} />
       ))}
