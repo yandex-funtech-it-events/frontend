@@ -6,6 +6,9 @@ import Benefits from './components/benefits';
 import AboutEvent from './components/about-event';
 import Speakers from './components/speakers';
 import Register from './components/register';
+import Map from './components/map';
+import Community from './components/community';
+import Questions from './components/questions';
 
 const SingleEvent: React.FC = () => {
   return (
@@ -18,6 +21,9 @@ const SingleEvent: React.FC = () => {
       <Speakers />
       {/*Тут надо верстать программу, для нее еще нет компонента*/}
       <Register />
+      <Map />
+      <Community />
+      <Questions />
     </Container>
   );
 };
