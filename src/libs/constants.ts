@@ -82,3 +82,42 @@ export const mockDataProgram = [
     img: '/qwerty.jpg',
   },
 ];
+
+export const mockDataSpeakers = [
+  {
+    data: 'Иванов Иван',
+    profession: 'Бухгалтер',
+  },
+  {
+    data: 'Сидоров Петр',
+    profession: 'Экономист',
+  },
+  {
+    data: 'Сидоров Петр',
+    profession: 'Экономист',
+  },
+  {
+    data: 'Иванов Иван',
+    profession: 'Бухгалтер',
+  },
+  {
+    data: 'Сидоров Петр',
+    profession: 'Экономист',
+  },
+  {
+    data: 'Сидоров Петр',
+    profession: 'Экономист',
+  },
+  {
+    data: 'Иванов Иван',
+    profession: 'Бухгалтер',
+  },
+  {
+    data: 'Сидоров Петр',
+    profession: 'Экономист',
+  },
+  {
+    data: 'Сидоров Петр',
+    profession: 'Экономист',
+  },
+];
