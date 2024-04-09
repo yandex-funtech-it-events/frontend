@@ -67,7 +67,7 @@ export const menuLinkMock = [
   },
   {
     label: 'настройка профиля',
-    href: '/settings',
+    href: 'settings',
     icon: SettingsIcon,
   },
   {
