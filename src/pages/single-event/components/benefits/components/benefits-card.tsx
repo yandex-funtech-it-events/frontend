@@ -14,7 +14,7 @@ const BenefitsCard: React.FC<BenefitsCardProps> = ({ number, description }) => {
       flexDirection="column"
       alignItems="center"
       gap={3}
-      sx={{ border: '1px dashed grey', maxWidth: '386px', width: '100%' }}
+      sx={{ maxWidth: '386px', width: '100%' }}
     >
       <Typography variant="h1">{number}</Typography>
       <Typography>{description}</Typography>

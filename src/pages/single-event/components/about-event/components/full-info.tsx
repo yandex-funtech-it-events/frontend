@@ -5,7 +5,7 @@ import { mockInfoArray } from '../../../../../libs/constants';
 
 const FullInfo: React.FC = () => {
   return (
-    <Box display="flex" flexDirection="column" sx={{ maxWidth: '912px', border: '1px solid red' }}>
+    <Box display="flex" flexDirection="column" sx={{ maxWidth: '912px' }}>
       <Box display="flex" gap={4} mb={3}>
         {mockInfoArray.map((text, i) => (
           <Typography key={i}>{text}</Typography>

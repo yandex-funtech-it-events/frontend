@@ -55,3 +55,30 @@ export const benefitsMockData = [
     description: 'Описание преимущества',
   },
 ];
+
+export const mockDataProgram = [
+  {
+    time: '9.00',
+    date: '19 апреля',
+    description: 'Описание',
+    data: 'Иванов Иван',
+    profession: 'Бухгалтер',
+    img: '/qwerty.jpg',
+  },
+  {
+    time: '12.00',
+    date: '19 апреля',
+    description: 'Описание 1',
+    data: 'Сидоров Петр',
+    profession: 'Экономист',
+    img: '/qwerty.jpg',
+  },
+  {
+    time: '15.30',
+    date: '19 апреля',
+    description: 'Описание 2',
+    data: 'Сидоров Петр',
+    profession: 'Экономист',
+    img: '/qwerty.jpg',
+  },
+];

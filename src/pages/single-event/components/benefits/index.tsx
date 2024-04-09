@@ -13,7 +13,6 @@ const Benefits: React.FC = () => {
       pt={4}
       pb={4}
       sx={{
-        border: '1px dashed grey',
         marginTop: '109px',
         gap: '109px',
         backgroundColor: '#F5F4F5',

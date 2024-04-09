@@ -9,6 +9,8 @@ import Register from './components/register';
 import Map from './components/map';
 import Community from './components/community';
 import Questions from './components/questions';
+import HowItWas from './components/how-it-was';
+import EventProgram from './components/event-program';
 
 const SingleEvent: React.FC = () => {
   return (
@@ -20,10 +22,13 @@ const SingleEvent: React.FC = () => {
       {/*Тут надо разбираться со слайдером */}
       <Speakers />
       {/*Тут надо верстать программу, для нее еще нет компонента*/}
+      <EventProgram />
       <Register />
       <Map />
       <Community />
       <Questions />
+      {/*Не сверстан*/}
+      <HowItWas />
     </Container>
   );
 };
