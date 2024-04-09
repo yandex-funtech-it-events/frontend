@@ -2,6 +2,7 @@ import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-d
 import { LinkProps } from '@mui/material/Link';
 import { createTheme } from '@mui/material';
 import { forwardRef } from 'react';
+import type {} from '@mui/lab/themeAugmentation';
 
 declare module '@mui/material/styles' {
   interface TypeBackground {
@@ -195,6 +196,37 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           width: '100%',
+        },
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontFamily: ['Roboto', 'sans-serif'].join(','),
+          fontSize: '14px',
+          fontWeight: 500,
+          lineHeight: '24px',
+          letterSpacing: '0.4px',
+          color: 'rgba(0, 0, 0, 0.60)',
+          '&:hover': {
+            borderRadius: '4px',
+          },
+        },
+      },
+    },
+    MuiTabPanel: {
+      styleOverrides: {
+        root: {
+          padding: 0,
         },
       },
     },

@@ -7,15 +7,15 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
 
 type EventSectionProps<T> = {
-  title: string;
+  title?: string;
   events: T[];
-  href: string;
+  href?: string;
   isAllEvents?: boolean;
 };
 
 const EventSection = ({
   title,
-  href,
+  href = '/',
   events,
   isAllEvents = false,
 }: EventSectionProps<{ img: string; title: string; cols?: number; rows?: number }>) => {
@@ -23,17 +23,19 @@ const EventSection = ({
 
   return (
     <Box component="section" display="flex" flexDirection="column" gap={13}>
-      <Link
-        href={href}
-        color="text.primary"
-        underline="none"
-        display="flex"
-        alignItems="center"
-        gap={1}
-      >
-        <Typography variant="h2">{title}</Typography>
-        <ChevronRightIcon fontSize="large" />
-      </Link>
+      {title && href && (
+        <Link
+          href={href}
+          color="text.primary"
+          underline="none"
+          display="flex"
+          alignItems="center"
+          gap={1}
+        >
+          <Typography variant="h2">{title}</Typography>
+          <ChevronRightIcon fontSize="large" />
+        </Link>
+      )}
 
       {isAllEvents ? (
         <Stack spacing={10}>
