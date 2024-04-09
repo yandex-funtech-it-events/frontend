@@ -1,16 +1,16 @@
-import { Box, Divider, IconButton, Menu, MenuItem, Typography } from '@mui/material';
+import * as React from 'react';
+import { Box, IconButton, Menu, Typography } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { useState } from 'react';
+import Navigation from '../../navigation.tsx';
 
 const UserMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpenMenu = () => {
-    setIsOpen(true);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
   };
-
-  const handleCloseMenu = () => {
-    setIsOpen(false);
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -22,7 +22,7 @@ const UserMenu = () => {
           aria-label="account of current user"
           aria-controls="user-menu"
           aria-haspopup="true"
-          onClick={handleOpenMenu}
+          onClick={handleClick}
           color="inherit"
         >
           <AccountCircle />
@@ -34,29 +34,22 @@ const UserMenu = () => {
       </Box>
 
       <Menu
-        sx={{ mt: { xs: '245px', md: '45px' } }}
+        sx={{ mt: { xs: '245px', md: '50px' } }}
         anchorOrigin={{
           vertical: 'top',
           horizontal: 'right',
         }}
+        anchorEl={anchorEl}
         id="user-menu"
         keepMounted
         transformOrigin={{
           vertical: 'top',
           horizontal: 'right',
         }}
-        open={isOpen}
-        onClose={handleCloseMenu}
+        open={open}
+        onClose={handleClose}
       >
-        <MenuItem onClick={handleCloseMenu}>Мои события</MenuItem>
-        <MenuItem onClick={handleCloseMenu}>Материалы</MenuItem>
-        <MenuItem onClick={handleCloseMenu}>Общение</MenuItem>
-        <MenuItem onClick={handleCloseMenu}>Уведомления</MenuItem>
-        <MenuItem onClick={handleCloseMenu}>Настройки профиля</MenuItem>
-
-        <Divider />
-
-        <MenuItem onClick={handleCloseMenu}>Выйти</MenuItem>
+        <Navigation showDivider />
       </Menu>
     </>
   );
