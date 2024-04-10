@@ -13,7 +13,7 @@ const ProfileInfo = () => {
 
       <Box display="flex" gap={4}>
         {editForm ? (
-          <InfoForm />
+          <InfoForm setEditForm={setEditForm} />
         ) : (
           <Stack
             spacing={10}
@@ -107,6 +107,7 @@ const ProfileInfo = () => {
               size="small"
               sx={{
                 width: 'fit-content',
+                marginTop: '58px',
                 background: '#FF6E2C',
               }}
             >

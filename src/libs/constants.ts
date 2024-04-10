@@ -47,22 +47,22 @@ export const posterImages = [
 export const menuLinkMock = [
   {
     label: 'Мои события',
-    href: '/my-events',
+    href: '/profile',
     icon: TicketIcon,
   },
   {
     label: 'Общение',
-    href: '/chats',
+    href: 'chats',
     icon: ChatIcon,
   },
   {
     label: 'Материалы',
-    href: '/folders',
+    href: 'materials',
     icon: FolderIcon,
   },
   {
     label: 'Уведомления',
-    href: '/notification',
+    href: 'notification',
     icon: BellIcon,
   },
   {

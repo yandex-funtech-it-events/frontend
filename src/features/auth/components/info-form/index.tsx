@@ -19,8 +19,13 @@ import {
   positionDataMock,
 } from '../../libs/constants.ts';
 import UploadImg from './components/upload-img.tsx';
+import { Dispatch, SetStateAction } from 'react';
 
-const InfoForm = () => {
+type InfoFormProps = {
+  setEditForm: Dispatch<SetStateAction<boolean>>;
+};
+
+const InfoForm = ({ setEditForm }: InfoFormProps) => {
   const {
     handleSubmit,
     control,
@@ -288,15 +293,21 @@ const InfoForm = () => {
               />
             </Stack>
 
-            <Button
-              type="submit"
-              color="secondary"
-              sx={{
-                width: 'fit-content',
-              }}
-            >
-              Сохранить
-            </Button>
+            <Box display="flex" justifyContent="space-between">
+              <Button
+                type="submit"
+                color="secondary"
+                sx={{
+                  width: 'fit-content',
+                }}
+              >
+                Сохранить
+              </Button>
+
+              <Button onClick={() => setEditForm(false)} color="secondary">
+                Заполнить позже
+              </Button>
+            </Box>
           </Stack>
         </Stack>
       </form>
