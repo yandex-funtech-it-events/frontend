@@ -4,6 +4,8 @@ import AuthPage from './pages/auth';
 import ProfilePage from './pages/profile';
 import ProfileLayout from './components/profile-layout.tsx';
 import SettingPage from './pages/settings';
+import ChatsPage from './pages/chats';
+import MaterialsPage from './pages/meterials';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Route path="/profile" element={<ProfileLayout />}>
         <Route index element={<ProfilePage />} />
         <Route path="settings" element={<SettingPage />} />
+        <Route path="chats" element={<ChatsPage />} />
+        <Route path="materials" element={<MaterialsPage />} />
       </Route>
     </Routes>
   );

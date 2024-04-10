@@ -5,10 +5,10 @@ import { Outlet } from 'react-router-dom';
 
 const ProfileLayout = () => {
   return (
-    <Box display="flex" gap={21}>
+    <Box width={1} display="flex" gap={21}>
       <ProfileAside />
 
-      <Box ml={88}>
+      <Box width={1} ml={88}>
         <Outlet />
       </Box>
     </Box>
