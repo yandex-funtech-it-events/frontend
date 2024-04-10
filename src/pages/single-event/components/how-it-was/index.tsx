@@ -1,6 +1,9 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
+import Carousel from './components/carousel';
+import Navigation from './components/navigaton';
+
 const HowItWas: React.FC = () => {
   return (
     <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={16}>
@@ -8,6 +11,9 @@ const HowItWas: React.FC = () => {
         Как это было
         <br /> в прошлый раз
       </Typography>
+
+      <Carousel />
+      <Navigation />
     </Box>
   );
 };
