@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 
 import Carousel from './components/carousel';
-import Navigation from './components/navigaton';
 
 const HowItWas: React.FC = () => {
   return (
@@ -13,7 +12,6 @@ const HowItWas: React.FC = () => {
       </Typography>
 
       <Carousel />
-      <Navigation />
     </Box>
   );
 };

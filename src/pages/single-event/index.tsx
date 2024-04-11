@@ -11,6 +11,7 @@ import Community from './components/community';
 import Questions from './components/questions';
 import HowItWas from './components/how-it-was';
 import EventProgram from './components/event-program';
+import FooterTabs from './components/footer-tabs';
 
 const SingleEvent: React.FC = () => {
   return (
@@ -27,8 +28,8 @@ const SingleEvent: React.FC = () => {
       <Map />
       <Community />
       <Questions />
-      {/*Не сверстан*/}
       <HowItWas />
+      <FooterTabs />
     </Container>
   );
 };

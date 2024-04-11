@@ -45,44 +45,42 @@ const Carousel: React.FC = () => {
       <Box
         display="flex"
         sx={{
-          width: '99%',
-          gap: '16px',
-          border: '1px solid red',
+          width: '888px',
+          overflow: 'hidden',
         }}
       >
-        <Swiper ref={sliderRef} modules={[Navigation, Pagination, Scrollbar, A11y]} loop>
+        <Swiper
+          ref={sliderRef}
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          loop
+          slidesPerView={4}
+        >
           {posterImages.map((event, i) => (
             <SwiperSlide key={i}>
-              <img src={event.img} width="216px" height="216px" style={{ objectFit: 'cover' }} />
+              <img
+                src={event.img}
+                width="216px"
+                height="216px"
+                style={{
+                  objectFit: 'cover',
+                  boxSizing: 'border-box',
+                  overflow: 'hidden',
+                  marginRight: '8px',
+                  borderRadius: '12px',
+                }}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* <IconButton
-          onClick={handlePrev}
-          sx={{
-            padding: '8px',
-            position: 'absolute',
-            top: '45%',
-            left: '-15px',
-            zIndex: '99',
-            backgroundColor: 'rgba(255, 255, 255, 0.12)',
-          }}
-        >
+      </Box>
+
+      <Box mt={2} display="flex" alignSelf="end" gap={1}>
+        <IconButton onClick={handlePrev}>
           <KeyboardBackspaceIcon />
         </IconButton>
-        <IconButton
-          onClick={handleNext}
-          sx={{
-            padding: '8px',
-            position: 'absolute',
-            top: '45%',
-            right: '-15px',
-            zIndex: '99',
-            backgroundColor: 'rgba(255, 255, 255, 0.12)',
-          }}
-        >
+        <IconButton onClick={handleNext}>
           <EastIcon />
-        </IconButton> */}
+        </IconButton>
       </Box>
     </Box>
   );
