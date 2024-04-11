@@ -26,12 +26,7 @@ const Speakers: React.FC = () => {
         Спикеры
       </Typography>
 
-      <Box
-        display="flex"
-        gap={2}
-        flexWrap="nowrap"
-        sx={{ border: '1px solid red', marginLeft: '250px' }}
-      >
+      <Box display="flex" gap={2} flexWrap="nowrap" sx={{ marginLeft: '250px' }}>
         <Box
           display="flex"
           sx={{

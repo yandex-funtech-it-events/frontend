@@ -55,10 +55,10 @@ const Carousel: React.FC = () => {
           loop
           slidesPerView={4}
         >
-          {posterImages.map((event, i) => (
+          {posterImages.map((photo, i) => (
             <SwiperSlide key={i}>
               <img
-                src={event.img}
+                src={photo.img}
                 width="216px"
                 height="216px"
                 style={{
