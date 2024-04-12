@@ -22,7 +22,7 @@ import UploadImg from './components/upload-img.tsx';
 import { Dispatch, SetStateAction } from 'react';
 
 type InfoFormProps = {
-  setEditForm: Dispatch<SetStateAction<boolean>>;
+  setEditForm?: Dispatch<SetStateAction<boolean>>;
 };
 
 const InfoForm = ({ setEditForm }: InfoFormProps) => {
@@ -304,7 +304,14 @@ const InfoForm = ({ setEditForm }: InfoFormProps) => {
                 Сохранить
               </Button>
 
-              <Button onClick={() => setEditForm(false)} color="secondary">
+              <Button
+                onClick={() => {
+                  if (setEditForm) {
+                    setEditForm(false);
+                  }
+                }}
+                color="secondary"
+              >
                 Заполнить позже
               </Button>
             </Box>

@@ -7,6 +7,7 @@ import EventSection from '../../features/event/components/event-section.tsx';
 import { posterImages } from '../../libs/constants.ts';
 import BannerRegister from './components/banner-register.tsx';
 import Footer from '../../components/footer.tsx';
+import EventFilters from '../../features/event/components/event-filters.tsx';
 
 const HomePage = () => {
   return (
@@ -19,6 +20,7 @@ const HomePage = () => {
 
         <Stack spacing={13} pt={25}>
           {/*//filters here*/}
+          <EventFilters />
           <EventSection title="Ближайшие события" href="/" events={posterImages.slice(0, 4)} />
           <EventSection title="Все события" href="/" events={posterImages} isAllEvents />
         </Stack>
