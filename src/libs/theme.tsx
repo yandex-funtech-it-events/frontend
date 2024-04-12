@@ -3,6 +3,7 @@ import { LinkProps } from '@mui/material/Link';
 import { createTheme } from '@mui/material';
 import { forwardRef } from 'react';
 import type {} from '@mui/lab/themeAugmentation';
+import type {} from '@mui/x-date-pickers/themeAugmentation';
 
 declare module '@mui/material/styles' {
   interface TypeBackground {
@@ -129,6 +130,8 @@ const theme = createTheme({
           props: { size: 'medium' },
           style: {
             height: '40px',
+            paddingLeft: '8px',
+            paddingRight: '8px',
             fontWeight: 400,
             fontSize: '16px',
             lineHeight: '24px',

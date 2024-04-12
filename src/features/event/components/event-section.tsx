@@ -30,6 +30,7 @@ const EventSection = ({
           underline="none"
           display="flex"
           alignItems="center"
+          alignSelf="flex-start"
           gap={1}
         >
           <Typography variant="h2">{title}</Typography>
