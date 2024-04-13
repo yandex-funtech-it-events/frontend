@@ -189,11 +189,6 @@ export const menuLinkMock = [
     icon: FolderIcon,
   },
   {
-    label: 'Уведомления',
-    href: 'notification',
-    icon: BellIcon,
-  },
-  {
     label: 'настройка профиля',
     href: 'settings',
     icon: SettingsIcon,

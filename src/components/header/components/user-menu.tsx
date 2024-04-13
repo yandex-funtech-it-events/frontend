@@ -49,7 +49,7 @@ const UserMenu = () => {
         open={open}
         onClose={handleClose}
       >
-        <Navigation showDivider />
+        <Navigation showDivider nestedPath="/profile" />
       </Menu>
     </>
   );

@@ -1,19 +1,13 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import { EventType } from '../types';
 
-const UseEventSearch = (
-  events: Array<{
-    img: string;
-    title: string;
-    cols?: number;
-    rows?: number;
-  }>
-) => {
+export const useEventSearch = (events: EventType[]) => {
   const [filteredEvents, setFilteredEvents] = useState(events);
   const [search, setSearch] = useState('');
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    const filter = filteredEvents.filter((event) => event.title.includes(search)) || [];
+    const filter = filteredEvents.filter((event) => event.name.includes(search)) || [];
     setFilteredEvents(filter);
   };
 
@@ -25,5 +19,3 @@ const UseEventSearch = (
 
   return { filteredEvents, search, handleSearch };
 };
-
-export default UseEventSearch;

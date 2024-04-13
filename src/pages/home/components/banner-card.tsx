@@ -1,8 +1,14 @@
 import { Box, Button, Chip, Typography } from '@mui/material';
-import event from '@/assets/images/event_card.png';
+import eventCard from '@/assets/images/event_card.png';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { EventType } from '../../../features/event/types';
 
-const BannerCard = ({ isSlider = false }: { isSlider?: boolean }) => {
+type BannerCardProps = {
+  event: EventType;
+  isSlider?: boolean;
+};
+
+const BannerCard = ({ event, isSlider = false }: BannerCardProps) => {
   return (
     <Box
       display="flex"
@@ -14,7 +20,7 @@ const BannerCard = ({ isSlider = false }: { isSlider?: boolean }) => {
       borderRadius={4}
       sx={{
         width: isSlider ? '90%' : '100%',
-        backgroundImage: `url(${event})`,
+        backgroundImage: event.slide ? `url(${event.slide})` : `url(${eventCard})`,
         backgroundPosition: 'center center',
         backgroundSize: 'cover',
       }}
@@ -27,7 +33,7 @@ const BannerCard = ({ isSlider = false }: { isSlider?: boolean }) => {
 
         <Box display="flex" flexDirection="column" gap={3} sx={{ width: '50%' }}>
           <Typography variant="h2" color="white">
-            Конференция виртуальная реальность
+            {event.name}
           </Typography>
           <Typography
             variant="h6"

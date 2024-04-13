@@ -1,0 +1,21 @@
+export type EventType = {
+  id: number;
+  name: string;
+  description: string;
+  format: string;
+  city: string;
+  slide: string;
+  address: string;
+  pedestrian_coordinates: string;
+  taxi_coordinates: string;
+  published_at: string;
+  registration_open_at: string;
+  registration_close_at: string;
+  start_at: string;
+  end_at: string;
+  video_archive_url: string;
+  price: number;
+  creator_id: number;
+  moderation_passed: boolean;
+  moderator_id: number;
+};

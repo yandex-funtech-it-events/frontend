@@ -6,7 +6,7 @@ export type FilterDirectionType = {
   };
 };
 
-export type FiltersType = {
+export type FilteredQueryType = {
   cities: string[];
   directions: string[];
   activeDirection: string;
