@@ -3,21 +3,15 @@ import { Box, Typography, Button } from '@mui/material';
 
 const Register: React.FC = () => {
   return (
-    <Box
-      component="section"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      sx={{ marginBottom: '230px' }}
-    >
-      <Typography component="h2" variant="h2" mb={5} alignSelf="start">
+    <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={20}>
+      <Typography component="h2" variant="h3" mb={10} alignSelf="start">
         Регистрация
       </Typography>
-      <Typography component="p" mb={3}>
-        Призыв к регистрации
+      <Typography component="p" variant="h6" mb={5}>
+        Название мероприятия
       </Typography>
-      <Typography component="p" mb={5}>
-        Описание нюансов регистрации
+      <Typography component="p" variant="h6" mb={10}>
+        Самый масштабный саммит о кибербезопасности в России по количеству участников и спикеров
       </Typography>
       <Button
         sx={{

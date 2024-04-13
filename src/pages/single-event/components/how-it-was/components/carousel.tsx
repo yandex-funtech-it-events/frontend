@@ -5,6 +5,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import EastIcon from '@mui/icons-material/East';
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { posterImages } from '../../../../../libs/constants';
+import TitleLink from './title-link';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -29,13 +30,15 @@ const Carousel: React.FC = () => {
       component="section"
       display="flex"
       flexDirection="column"
-      alignItems="center"
       width="912px"
       borderRadius="16px"
-      sx={{ background: '#E0E0E0', padding: '42px 42px' }}
+      p={8}
+      sx={{ background: '#E0E0E0' }}
     >
-      <Typography mb={2}>Заголовок</Typography>
-      <Typography mb={10}>
+      <Typography component="h3" variant="h6" mb={4}>
+        Саммит Кибербезопасности 2023
+      </Typography>
+      <Typography component="p" variant="body1" mb={4}>
         The studio's approach to design encompasses a wide range of scales, from micro to global,
         and treats each project as a laboratory for testing future models of urban inhabitation.
         Their focus is on creating scalable nature-based solutions to address the challenges faced
@@ -45,7 +48,7 @@ const Carousel: React.FC = () => {
       <Box
         display="flex"
         sx={{
-          width: '888px',
+          width: '850px',
           overflow: 'hidden',
         }}
       >
@@ -54,6 +57,7 @@ const Carousel: React.FC = () => {
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           loop
           slidesPerView={4}
+          spaceBetween={48}
         >
           {posterImages.map((photo, i) => (
             <SwiperSlide key={i}>
@@ -74,13 +78,16 @@ const Carousel: React.FC = () => {
         </Swiper>
       </Box>
 
-      <Box mt={2} display="flex" alignSelf="end" gap={1}>
-        <IconButton onClick={handlePrev}>
-          <KeyboardBackspaceIcon />
-        </IconButton>
-        <IconButton onClick={handleNext}>
-          <EastIcon />
-        </IconButton>
+      <Box mt={6} display="flex" alignSelf="end" gap={4} alignItems="center">
+        <TitleLink />
+        <Box display="flex" gap={2}>
+          <IconButton onClick={handlePrev}>
+            <KeyboardBackspaceIcon />
+          </IconButton>
+          <IconButton onClick={handleNext}>
+            <EastIcon />
+          </IconButton>
+        </Box>
       </Box>
     </Box>
   );

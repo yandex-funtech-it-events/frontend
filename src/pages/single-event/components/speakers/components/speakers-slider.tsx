@@ -22,11 +22,12 @@ const SpeakersSlider: React.FC = () => {
 
   return (
     <>
-      <Box display="flex" flexWrap="nowrap" sx={{ marginLeft: '250px' }}>
+      <Box display="flex" flexWrap="nowrap" sx={{ marginLeft: '210px' }}>
         <Box display="flex" overflow="hidden">
           <Swiper
             ref={sliderRef}
-            slidesPerView={5}
+            slidesPerView={6}
+            spaceBetween={200}
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             loop
           >

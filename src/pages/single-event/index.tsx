@@ -20,9 +20,7 @@ const SingleEvent: React.FC = () => {
       <Info />
       <AboutEvent />
       <Benefits />
-      {/*Тут надо разбираться со слайдером */}
       <Speakers />
-      {/*Тут надо верстать программу, для нее еще нет компонента*/}
       <EventProgram />
       <Register />
       <Map />
