@@ -12,10 +12,10 @@ const Benefits: React.FC = () => {
       justifyContent="center"
       pt={4}
       pb={4}
+      mt={20}
       sx={{
-        marginTop: '109px',
         gap: '109px',
-        backgroundColor: '#F5F4F5',
+        background: '#FF4D00',
       }}
     >
       {benefitsMockData.map((item, i) => (

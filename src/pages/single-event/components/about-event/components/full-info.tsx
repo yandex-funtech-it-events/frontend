@@ -5,16 +5,18 @@ import { mockInfoArray } from '../../../../../libs/constants';
 
 const FullInfo: React.FC = () => {
   return (
-    <Box display="flex" flexDirection="column" sx={{ maxWidth: '912px' }}>
-      <Box display="flex" gap={4} mb={3}>
+    <Box display="flex" flexDirection="column" maxWidth="912px">
+      <Box display="flex" gap={7} mb={6}>
         {mockInfoArray.map((text, i) => (
-          <Typography key={i}>{text}</Typography>
+          <Typography variant="h6" key={i}>
+            {text}
+          </Typography>
         ))}
       </Box>
 
       <Chips />
 
-      <Typography component="p" sx={{ maxWidth: '912px' }} mt={3}>
+      <Typography variant="body1" component="p" maxWidth="912px" mt={6}>
         ECOLOGICSTUDIO IS AN ARCHITECTURE AND DESIGN INNOVATION FIRM SPECIALISING IN DEVELOPING
         BIOTECHNOLOGY FOR THE BUILT ENVIRONMENT. <br />
         ecoLogicStudio is an innovative architecture and design firm that specializes in developing

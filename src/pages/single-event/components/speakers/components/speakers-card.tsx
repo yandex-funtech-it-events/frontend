@@ -9,10 +9,10 @@ interface SpeakerCardProps {
 
 const SpeakerCard: React.FC<SpeakerCardProps> = ({ data, profession }) => {
   return (
-    <Box display="flex" flexDirection="column" gap={2} width={'216px'}>
+    <Box display="flex" flexDirection="column" gap={4} width="216px">
       <img src={speaker} alt="Speaker" />
-      <Typography>{data}</Typography>
-      <Typography>{profession}</Typography>
+      <Typography variant="body1">{data}</Typography>
+      <Typography variant="body2">{profession}</Typography>
     </Box>
   );
 };

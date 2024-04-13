@@ -10,7 +10,7 @@ const AboutEvent: React.FC = () => {
       flexDirection="column"
       alignItems="center"
       mb={15}
-      sx={{ marginTop: '66px' }}
+      mt={20}
     >
       <Typography
         component="h2"

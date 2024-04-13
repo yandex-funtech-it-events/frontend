@@ -20,8 +20,17 @@ const EventProgram: React.FC = () => {
   };
 
   return (
-    <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={3}>
-      <Typography component="h2" variant="h2" mb={8} alignSelf="start">
+    <Box
+      component="section"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      mb={20}
+      pt={4}
+      pb={8}
+      sx={{ background: '#F4F1ED' }}
+    >
+      <Typography component="h2" variant="h3" mb={5} alignSelf="start">
         Программа
       </Typography>
 
@@ -45,11 +54,13 @@ const EventProgram: React.FC = () => {
               time={card.time}
               date={card.date}
               description={card.description}
+              eventName={card.eventName}
               data={card.data}
               profession={card.profession}
             />
           ))}
         </CustomTabPanel>
+
         <CustomTabPanel value={value} index={1}>
           {mockDataProgram.map((card, i) => (
             <CustomTabCard
@@ -57,6 +68,7 @@ const EventProgram: React.FC = () => {
               time={card.time}
               date={card.date}
               description={card.description}
+              eventName={card.eventName}
               data={card.data}
               profession={card.profession}
             />

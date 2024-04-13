@@ -7,11 +7,11 @@ import Chips from '../../chips';
 const InfoAbout: React.FC = () => {
   return (
     <Box>
-      <Typography variant="h2" mb={3}>
+      <Typography component="h2" variant="h3" mb={5}>
         Дизайн выходные
       </Typography>
       <Chips />
-      <Typography sx={{ height: '168px', marginBottom: '50px' }} mt={3}>
+      <Typography variant="body1" sx={{ height: '168px', marginBottom: '78px' }} mt={5}>
         Описание мероприятия
       </Typography>
 

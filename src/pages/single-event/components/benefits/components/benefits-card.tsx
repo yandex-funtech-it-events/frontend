@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import { Typography } from '@mui/material';
 
 interface BenefitsCardProps {
-  number: number;
+  number: string;
   description: string;
 }
 
@@ -13,11 +13,12 @@ const BenefitsCard: React.FC<BenefitsCardProps> = ({ number, description }) => {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      gap={3}
-      sx={{ maxWidth: '386px', width: '100%' }}
+      gap={6}
+      maxWidth="386px"
+      width="100%"
     >
-      <Typography variant="h1">{number}</Typography>
-      <Typography>{description}</Typography>
+      <Typography variant="caption">{number}</Typography>
+      <Typography variant="h6">{description}</Typography>
     </Box>
   );
 };

@@ -18,8 +18,8 @@ const SingleEvent: React.FC = () => {
     <Container sx={{ border: '1px dashed grey' }}>
       <Header />
       <Info />
-      <Benefits />
       <AboutEvent />
+      <Benefits />
       {/*Тут надо разбираться со слайдером */}
       <Speakers />
       {/*Тут надо верстать программу, для нее еще нет компонента*/}

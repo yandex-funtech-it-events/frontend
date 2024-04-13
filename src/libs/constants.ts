@@ -43,16 +43,16 @@ export const mockChipsArray = ['теги', 'теги', 'теги', 'теги', '
 
 export const benefitsMockData = [
   {
-    number: 30,
-    description: 'Описание преимущества',
+    number: '800+',
+    description: 'Офлайн участников',
   },
   {
-    number: 30,
-    description: 'Описание преимущества',
+    number: '2000+',
+    description: 'Онлайн-участников',
   },
   {
-    number: 30,
-    description: 'Описание преимущества',
+    number: '30',
+    description: 'Спикеров',
   },
 ];
 
@@ -61,12 +61,14 @@ export const mockDataProgram = [
     time: '9.00',
     date: '19 апреля',
     description: 'Описание',
+    eventName: 'Вводная часть',
     data: 'Иванов Иван',
     profession: 'Бухгалтер',
     img: '/qwerty.jpg',
   },
   {
     time: '12.00',
+    eventName: 'Проект КИ в VK',
     date: '19 апреля',
     description: 'Описание 1',
     data: 'Сидоров Петр',
@@ -76,6 +78,7 @@ export const mockDataProgram = [
   {
     time: '15.30',
     date: '19 апреля',
+    eventName: 'Цифровое будущее',
     description: 'Описание 2',
     data: 'Сидоров Петр',
     profession: 'Экономист',

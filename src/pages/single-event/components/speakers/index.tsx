@@ -1,60 +1,14 @@
 import React from 'react';
-import { Typography, Box, IconButton } from '@mui/material';
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import EastIcon from '@mui/icons-material/East';
-import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules';
-import SpeakerCard from './components/speakers-card';
-import { mockDataSpeakers } from '../../../../libs/constants';
+import { Typography, Box } from '@mui/material';
+import SpeakersSlider from './components/speakers-slider';
 
 const Speakers: React.FC = () => {
-  const sliderRef = React.useRef<SwiperRef>(null);
-
-  const handlePrev = React.useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slidePrev();
-  }, []);
-
-  const handleNext = React.useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slideNext();
-  }, []);
-
   return (
-    <Box component="section" display="flex" flexDirection="column" sx={{ marginBottom: '185px' }}>
-      <Typography component="h2" variant="h2" mb={5}>
+    <Box component="section" display="flex" flexDirection="column" mt={20} mb={35}>
+      <Typography component="h2" variant="h3" mb={15}>
         Спикеры
       </Typography>
-
-      <Box display="flex" gap={2} flexWrap="nowrap" sx={{ marginLeft: '250px' }}>
-        <Box
-          display="flex"
-          sx={{
-            overflow: 'hidden',
-          }}
-        >
-          <Swiper
-            ref={sliderRef}
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            loop
-            slidesPerView={5}
-          >
-            {mockDataSpeakers.map((card, i) => (
-              <SwiperSlide key={i}>
-                <SpeakerCard key={i} data={card.data} profession={card.profession} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Box>
-      </Box>
-      <Box mt={2} display="flex" alignSelf="end" gap={1}>
-        <IconButton onClick={handlePrev}>
-          <KeyboardBackspaceIcon />
-        </IconButton>
-        <IconButton onClick={handleNext}>
-          <EastIcon />
-        </IconButton>
-      </Box>
+      <SpeakersSlider />
     </Box>
   );
 };
