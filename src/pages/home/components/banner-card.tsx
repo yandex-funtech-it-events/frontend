@@ -8,6 +8,7 @@ const BannerCard = ({ isSlider = false }: { isSlider?: boolean }) => {
       display="flex"
       flexDirection="column"
       justifyContent="flex-end"
+      minHeight={480}
       height={1}
       p={10}
       borderRadius={4}
@@ -20,14 +21,17 @@ const BannerCard = ({ isSlider = false }: { isSlider?: boolean }) => {
     >
       <Box display="flex" flexDirection="column" gap={5}>
         <Box display="flex" gap={2}>
-          <Chip label="Chip Filled" />
-          <Chip label="Chip Filled" />
+          <Chip size="small" label="Chip Filled" sx={{ color: 'white' }} />
+          <Chip size="small" label="Chip Filled" sx={{ color: 'white' }} />
         </Box>
 
         <Box display="flex" flexDirection="column" gap={3} sx={{ width: '50%' }}>
-          <Typography variant="h1">Конференция виртуальная реальность</Typography>
+          <Typography variant="h2" color="white">
+            Конференция виртуальная реальность
+          </Typography>
           <Typography
-            variant="subtitle1"
+            variant="h6"
+            color="white"
             sx={{
               paddingBottom: isSlider ? '48px' : '',
             }}
