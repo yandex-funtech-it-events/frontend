@@ -10,38 +10,31 @@ import {
 import * as React from 'react';
 import { CloseOutlined } from '@mui/icons-material';
 import { DatePicker } from '@mui/x-date-pickers';
-import {
-  citiesMock,
-  defaultFilterValues,
-  filtersDirectionsMock,
-  filtersStatusMock,
-} from '../../../libs/constants.ts';
-import { useState } from 'react';
-import { FiltersType } from '../../../types';
+import { citiesMock, filtersDirectionsMock, filtersStatusMock } from '../../../libs/constants.ts';
 import Search from '../../../components/search.tsx';
 import MultiSelect from '../../../components/multi-select.tsx';
+import { useFilteredQuery } from '../../../hooks/use-filtered-query.ts';
 
 const EventFilters = () => {
-  const [filterState, setFilterState] = useState<FiltersType>({
-    cities: [],
-    directions: [],
-    activeDirection: '',
-    tags: [],
-    format: '',
-    isOpenRegister: false,
-    search: '',
-    date: null,
-  });
+  const {
+    cities,
+    tags,
+    directions,
+    activeDirection,
+    format,
+    isOpenRegister,
+    search,
+    date,
+    onReset,
+    onChange,
+    hasQuery,
+  } = useFilteredQuery();
 
-  const handleChangeSelect = (event: SelectChangeEvent<typeof filterState.cities>) => {
+  const handleChangeSelect = (event: SelectChangeEvent<typeof cities>) => {
     const {
       target: { value },
     } = event;
-
-    setFilterState((prev) => ({
-      ...prev,
-      cities: typeof value === 'string' ? value.split(',') : value,
-    }));
+    onChange('cities', typeof value === 'string' ? value.split(',') : value);
   };
 
   return (
@@ -52,40 +45,31 @@ const EventFilters = () => {
       spacing={8}
       borderRadius={5}
       sx={{
-        border: '1px solid black',
+        border: '1px solid rgba(0, 0, 0, 0.12)',
       }}
     >
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box width={1} display="flex" alignItems="center" gap={10}>
           <Search
-            value={filterState.search}
+            value={search}
             onChange={(e) => {
-              setFilterState((prev) => ({
-                ...prev,
-                search: e.target.value,
-              }));
+              onChange('search', e.target.value);
             }}
           />
 
           <MultiSelect
             options={citiesMock}
-            value={filterState.cities}
+            value={cities}
             onChange={handleChangeSelect}
-            onReset={() =>
-              setFilterState((prev) => ({
-                ...prev,
-                cities: [],
-              }))
-            }
+            onReset={() => {
+              onChange('cities', []);
+            }}
           />
 
           <DatePicker
-            value={filterState.date}
+            value={date}
             onChange={(value) => {
-              setFilterState((prev) => ({
-                ...prev,
-                date: value,
-              }));
+              onChange('date', value);
             }}
             slotProps={{ textField: { placeholder: 'Выбор даты' } }}
             format="DD/MM/YYYY"
@@ -100,12 +84,9 @@ const EventFilters = () => {
           <FormControlLabel
             control={
               <Switch
-                checked={filterState.isOpenRegister}
+                checked={isOpenRegister}
                 onChange={(e) => {
-                  setFilterState((prev) => ({
-                    ...prev,
-                    isOpenRegister: e.target.checked,
-                  }));
+                  onChange('isOpenRegister', e.target.checked);
                 }}
               />
             }
@@ -113,17 +94,9 @@ const EventFilters = () => {
           />
         </Box>
 
-        {Object.values(filterState).some((item) => {
-          if (Array.isArray(item)) {
-            return item.length !== 0;
-          } else {
-            return Boolean(item);
-          }
-        }) && (
+        {hasQuery && (
           <IconButton
-            onClick={() => {
-              setFilterState(defaultFilterValues);
-            }}
+            onClick={onReset}
             sx={{
               background: '#FF4D00',
               '&:hover': {
@@ -140,19 +113,19 @@ const EventFilters = () => {
         )}
       </Box>
 
-      {filterState.tags.length > 0 && (
+      {tags.length > 0 && (
         <Box display="flex" flexWrap="wrap" gap={3}>
-          {filterState.tags.map((item) => (
+          {tags.map((item) => (
             <Chip
               key={item}
               size="medium"
               variant="outlined"
               label={item}
               onDelete={() =>
-                setFilterState((prev) => ({
-                  ...prev,
-                  tags: filterState.tags.filter((tag) => tag !== item),
-                }))
+                onChange(
+                  'tags',
+                  tags.filter((tag) => tag !== item)
+                )
               }
             />
           ))}
@@ -167,23 +140,17 @@ const EventFilters = () => {
               size="medium"
               label={item}
               onClick={() => {
-                if (!filterState.directions.includes(item)) {
-                  setFilterState((prev) => ({
-                    ...prev,
-                    directions: [...prev.directions, item],
-                  }));
+                if (!directions.includes(item)) {
+                  onChange('directions', [...directions, item]);
                 }
 
-                setFilterState((prev) => ({
-                  ...prev,
-                  activeDirection: filterState.activeDirection === item ? '' : item,
-                }));
+                onChange('activeDirection', activeDirection === item ? '' : item);
               }}
               sx={{
-                color: filterState.directions.includes(item) ? 'white' : '',
-                background: filterState.directions.includes(item) ? 'rgba(0, 0, 0, 0.70)' : '',
+                color: directions.includes(item) ? 'white' : '',
+                background: directions.includes(item) ? 'rgba(0, 0, 0, 0.70)' : '',
                 '&:hover': {
-                  background: filterState.directions.includes(item) ? 'rgba(0, 0, 0, 0.87)' : '',
+                  background: directions.includes(item) ? 'rgba(0, 0, 0, 0.87)' : '',
                 },
               }}
             />
@@ -197,16 +164,13 @@ const EventFilters = () => {
               size="medium"
               label={item.label}
               onClick={() => {
-                setFilterState((prev) => ({
-                  ...prev,
-                  format: item.label,
-                }));
+                onChange('format', item.label);
               }}
               sx={{
-                color: filterState.format === item.label ? 'white' : '',
-                background: filterState.format === item.label ? 'rgba(0, 0, 0, 0.70)' : '',
+                color: format === item.label ? 'white' : '',
+                background: format === item.label ? 'rgba(0, 0, 0, 0.70)' : '',
                 '&:hover': {
-                  background: filterState.format === item.label ? 'rgba(0, 0, 0, 0.87)' : '',
+                  background: format === item.label ? 'rgba(0, 0, 0, 0.87)' : '',
                 },
               }}
             />
@@ -214,76 +178,66 @@ const EventFilters = () => {
         </Box>
       </Box>
 
-      {filtersDirectionsMock[filterState.activeDirection]?.directions.length > 0 &&
-        filterState.activeDirection && (
-          <Box
-            px={4}
-            py={5}
-            display="flex"
-            justifyContent="space-between"
-            gap={7}
-            borderRadius={4}
+      {filtersDirectionsMock[activeDirection]?.directions.length > 0 && activeDirection && (
+        <Box
+          px={4}
+          py={5}
+          display="flex"
+          justifyContent="space-between"
+          gap={7}
+          borderRadius={4}
+          sx={{
+            background: 'rgba(20, 18, 22, 0.05)',
+          }}
+        >
+          <Box display="flex" flexWrap="wrap" gap={3}>
+            {filtersDirectionsMock[activeDirection]?.directions.map((el) => {
+              if (tags.includes(el)) {
+                return (
+                  <Chip
+                    key={el}
+                    size="medium"
+                    variant="outlined"
+                    label={el}
+                    onClick={() => {
+                      onChange('tags', [...tags, el]);
+                    }}
+                    onDelete={() => {
+                      onChange(
+                        'tags',
+                        tags.filter((tag) => tag !== el)
+                      );
+                    }}
+                  />
+                );
+              } else {
+                return (
+                  <Chip
+                    key={el}
+                    size="medium"
+                    variant="outlined"
+                    label={el}
+                    onClick={() => {
+                      onChange('tags', [...tags, el]);
+                    }}
+                  />
+                );
+              }
+            })}
+          </Box>
+
+          <IconButton
+            onClick={() => {
+              onChange('activeDirection', '');
+            }}
             sx={{
-              background: 'rgba(20, 18, 22, 0.05)',
+              alignSelf: 'flex-start',
             }}
           >
-            <Box display="flex" flexWrap="wrap" gap={3}>
-              {filtersDirectionsMock[filterState.activeDirection]?.directions.map((el) => {
-                if (filterState.tags.includes(el)) {
-                  return (
-                    <Chip
-                      key={el}
-                      size="medium"
-                      variant="outlined"
-                      label={el}
-                      onClick={() => {
-                        setFilterState((prev) => ({
-                          ...prev,
-                          tags: [...prev.tags, el],
-                        }));
-                      }}
-                      onDelete={() => {
-                        setFilterState((prev) => ({
-                          ...prev,
-                          tags: filterState.tags.filter((tag) => tag !== el),
-                        }));
-                      }}
-                    />
-                  );
-                } else {
-                  return (
-                    <Chip
-                      key={el}
-                      size="medium"
-                      variant="outlined"
-                      label={el}
-                      onClick={() => {
-                        setFilterState((prev) => ({
-                          ...prev,
-                          tags: [...prev.tags, el],
-                        }));
-                      }}
-                    />
-                  );
-                }
-              })}
-            </Box>
-
-            <IconButton
-              onClick={() => {
-                setFilterState((prev) => ({
-                  ...prev,
-                  activeDirection: '',
-                }));
-              }}
-              sx={{
-                alignSelf: 'flex-start',
-              }}
-            >
-              <CloseOutlined />
-            </IconButton>
-          </Box>
-        )}
+            <CloseOutlined />
+          </IconButton>
+        </Box>
+      )}
     </Stack>
   );
 };

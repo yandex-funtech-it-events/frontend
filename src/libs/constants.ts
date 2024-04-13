@@ -62,11 +62,6 @@ export const menuLinkMock = [
     icon: FolderIcon,
   },
   {
-    label: 'Уведомления',
-    href: 'notification',
-    icon: BellIcon,
-  },
-  {
     label: 'настройка профиля',
     href: 'settings',
     icon: SettingsIcon,
@@ -115,14 +110,3 @@ export const filtersStatusMock = [
 ];
 
 export const citiesMock = ['Москва', 'Санкт-Петербург', 'Воронеж', 'Минск', 'Другой город'];
-
-export const defaultFilterValues = {
-  cities: [],
-  directions: [],
-  activeDirection: '',
-  tags: [],
-  format: '',
-  isOpenRegister: false,
-  search: '',
-  date: null,
-};

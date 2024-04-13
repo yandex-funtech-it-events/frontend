@@ -2,8 +2,10 @@ import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import api from './api.ts';
+import { filteredQuerySlice } from '../slices/filtered-query-slice.ts';
+import { eventSlice } from '../features/event/slices';
 
-const rootReducer = combineSlices(api);
+const rootReducer = combineSlices(api, filteredQuerySlice, eventSlice);
 
 const store = configureStore({
   reducer: rootReducer,

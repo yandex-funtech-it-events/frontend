@@ -1,12 +1,13 @@
 import { Box } from '@mui/material';
 import EventCard from './event-card.tsx';
+import { EventType } from '../types';
 
-type EventListProps<T> = {
-  events: T[];
+type EventListProps = {
+  events: EventType[];
   gap?: number;
 };
 
-const EventList = ({ events, gap = 4 }: EventListProps<{ img: string }>) => {
+const EventList = ({ events, gap = 4 }: EventListProps) => {
   return (
     <Box
       component="ul"
@@ -17,9 +18,9 @@ const EventList = ({ events, gap = 4 }: EventListProps<{ img: string }>) => {
       p={0}
       sx={{ listStyle: 'none' }}
     >
-      {events.map((item, index) => (
+      {events.map((event, index) => (
         <li key={index}>
-          <EventCard bgImage={item.img} />
+          <EventCard event={event} />
         </li>
       ))}
     </Box>

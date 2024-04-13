@@ -1,7 +1,9 @@
 import { Box, Button, Chip, Collapse, IconButton, Link, Stack, Typography } from '@mui/material';
-import event from '@/assets/images/event_card.png';
+import eventCard from '@/assets/images/event_card.png';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from 'react';
+import { EventType } from '../types';
+import dayjs from 'dayjs';
 
 const bull = (
   <Box component="span" sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
@@ -10,7 +12,7 @@ const bull = (
 );
 
 type EventCardProps = {
-  bgImage: string;
+  event: EventType;
   fullWidth?: boolean;
   eventSize?: 'sm' | 'md';
   isProfile?: boolean;
@@ -18,7 +20,7 @@ type EventCardProps = {
 };
 
 const EventCard = ({
-  bgImage,
+  event,
   fullWidth = false,
   eventSize = 'sm',
   isProfile = false,
@@ -32,12 +34,17 @@ const EventCard = ({
       display="flex"
       flexDirection="column"
       borderRadius={5}
-      maxWidth={fullWidth ? '100%' : eventSize === 'sm' ? 331 : 581}
-      width={1}
+      width={fullWidth ? '100%' : eventSize === 'sm' ? 331 : 581}
+      // width={1}
       minHeight={isProfile ? 240 : 415}
       height={1}
       sx={{
-        background: hover && isProfile ? '#FF6E2C' : `url(${bgImage ? bgImage : event})`,
+        background:
+          hover && isProfile
+            ? '#FF6E2C'
+            : event.slide
+              ? `url(${event.slide})`
+              : `url(${eventCard})`,
         backgroundPosition: 'center center',
         backgroundSize: 'cover',
         boxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.06)',
@@ -61,10 +68,10 @@ const EventCard = ({
         >
           <Stack spacing={3} display="flex" flexDirection="column" justifyContent="space-between">
             <Typography variant="subtitle2" className="display-1-string">
-              10.08.2024 {bull} оффлайн/онлайн {bull} г. Новгород
+              {dayjs(event.start_at).format('DD/MM/YYYY')} {bull} {event.format} {bull} {event.city}
             </Typography>
             <Typography variant="h6" className="display-3-string">
-              Форум FutureTech: Погружение в инновации завтрашнего дня
+              {event.name}
             </Typography>
           </Stack>
 
@@ -100,16 +107,14 @@ const EventCard = ({
               }}
             >
               <Typography variant="subtitle2" className="display-1-string">
-                10.08.2024 {bull} оффлайн/онлайн {bull} г. Новгород
+                {dayjs(event.start_at).format('DD/MM/YYYY')} {bull} {event.format} {bull}{' '}
+                {event.city}
               </Typography>
               <Typography variant="h6" className="display-3-string">
-                Форум FutureTech: Погружение в инновации завтрашнего дня
+                {event.name}
               </Typography>
               <Collapse in={hover} timeout="auto">
-                <Typography variant="body1">
-                  Событие, где соберутся передовые специалисты и лидеры индустрии, чтобы обсудить
-                  главные тренды и технологические инновации, которые определят будущее.
-                </Typography>
+                <Typography variant="body1">{event.description}</Typography>
               </Collapse>
             </Box>
           </Link>

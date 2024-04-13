@@ -6,19 +6,18 @@ import { useCallback, useRef } from 'react';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import EastIcon from '@mui/icons-material/East';
 import CurlyBraces from '../../../components/curly-braces.tsx';
+import { EventType } from '../../../features/event/types';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-type TopTenProps<T> = {
-  events: T[];
+type TopTenProps = {
+  events: EventType[];
 };
 
-const TopTen = ({
-  events,
-}: TopTenProps<{ img: string; title: string; cols?: number; rows?: number }>) => {
+const TopTen = ({ events }: TopTenProps) => {
   const sliderRef = useRef<SwiperRef>(null);
 
   const handlePrev = useCallback(() => {
@@ -89,9 +88,9 @@ const TopTen = ({
             loop
             width={1060}
           >
-            {events.map((event, index) => (
-              <SwiperSlide key={index}>
-                <EventCard bgImage={event.img} />
+            {events.map((event) => (
+              <SwiperSlide key={event.id}>
+                <EventCard event={event} />
               </SwiperSlide>
             ))}
           </Swiper>

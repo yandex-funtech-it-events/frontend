@@ -1,25 +1,17 @@
 import { Box, InputAdornment, TextField, Typography } from '@mui/material';
 import EventCard from './event-card.tsx';
 import SearchIcon from '@mui/icons-material/Search';
-import UseEventSearch from '../hooks/use-event-search.tsx';
+import { useEventSearch } from '../hooks/use-event-search.tsx';
+import { EventType } from '../types';
 
-type EventProfileSectionProps<T> = {
+type EventProfileSectionProps = {
   title: string;
   buttonLabel: string;
-  events: T[];
+  events: EventType[];
 };
 
-const EventProfileSection = ({
-  title,
-  buttonLabel,
-  events,
-}: EventProfileSectionProps<{
-  img: string;
-  title: string;
-  cols?: number;
-  rows?: number;
-}>) => {
-  const { filteredEvents, search, handleSearch } = UseEventSearch(events);
+const EventProfileSection = ({ title, buttonLabel, events }: EventProfileSectionProps) => {
+  const { filteredEvents, search, handleSearch } = useEventSearch(events);
 
   return (
     <Box component="section" display="flex" flexDirection="column" gap={10}>
@@ -60,9 +52,9 @@ const EventProfileSection = ({
           p={0}
           sx={{ listStyle: 'none' }}
         >
-          {filteredEvents.map((item, index) => (
-            <li key={index}>
-              <EventCard bgImage={item.img} isProfile buttonLabel={buttonLabel} />
+          {filteredEvents.map((event) => (
+            <li key={event.id}>
+              <EventCard event={event} isProfile buttonLabel={buttonLabel} />
             </li>
           ))}
         </Box>

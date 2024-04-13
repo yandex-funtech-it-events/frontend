@@ -5,20 +5,24 @@ import BannerCard from '../../../pages/home/components/banner-card.tsx';
 import EventCard from './event-card.tsx';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
+import EventListSkeleton from './event-list-skeleton.tsx';
+import { EventType } from '../types';
 
-type EventSectionProps<T> = {
+type EventSectionProps = {
   title?: string;
-  events: T[];
+  events: EventType[];
   href?: string;
   isAllEvents?: boolean;
+  isLoading?: boolean;
 };
 
 const EventSection = ({
   title,
-  href = '/',
+  href,
   events,
   isAllEvents = false,
-}: EventSectionProps<{ img: string; title: string; cols?: number; rows?: number }>) => {
+  isLoading = false,
+}: EventSectionProps) => {
   const [howManyEventsShow, setHowManyEventsShow] = useState(4);
 
   return (
@@ -38,6 +42,8 @@ const EventSection = ({
         </Link>
       )}
 
+      {title && !href && <Typography variant="h2">{title}</Typography>}
+
       {isAllEvents ? (
         <Stack spacing={10}>
           <ImageList
@@ -47,17 +53,23 @@ const EventSection = ({
             sx={{ width: 1, margin: 0, padding: 0 }}
             style={{ gap: '16px' }}
           >
-            {events.slice(0, howManyEventsShow).map((item, index) => {
+            {events.slice(0, howManyEventsShow).map((event, index) => {
               if (index === 0) {
                 return (
-                  <ImageListItem key={item.title} cols={item.cols || 1} rows={item.rows || 1}>
-                    <BannerCard />
+                  <ImageListItem key={event.id} cols={2} rows={2}>
+                    <BannerCard event={event} />
+                  </ImageListItem>
+                );
+              } else if (index === 3) {
+                return (
+                  <ImageListItem key={event.id} cols={2} rows={1}>
+                    <EventCard event={event} fullWidth />
                   </ImageListItem>
                 );
               } else {
                 return (
-                  <ImageListItem key={item.title} cols={item.cols || 1} rows={item.rows || 1}>
-                    <EventCard bgImage={item.img} fullWidth />
+                  <ImageListItem key={event.id} cols={1} rows={1}>
+                    <EventCard event={event} fullWidth />
                   </ImageListItem>
                 );
               }
@@ -74,6 +86,8 @@ const EventSection = ({
             </Button>
           )}
         </Stack>
+      ) : isLoading ? (
+        <EventListSkeleton />
       ) : (
         <EventList events={events} />
       )}
