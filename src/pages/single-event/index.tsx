@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from '@mui/material';
 import Header from '../../components/header';
 import Info from './components/info';
 import Benefits from './components/benefits';
@@ -12,10 +11,11 @@ import Questions from './components/questions';
 import HowItWas from './components/how-it-was';
 import EventProgram from './components/event-program';
 import FooterTabs from './components/footer-tabs';
+import Footer from '../../components/footer';
 
 const SingleEvent: React.FC = () => {
   return (
-    <Container sx={{ border: '1px dashed grey' }}>
+    <>
       <Header />
       <Info />
       <AboutEvent />
@@ -28,7 +28,8 @@ const SingleEvent: React.FC = () => {
       <Questions />
       <HowItWas />
       <FooterTabs />
-    </Container>
+      <Footer />
+    </>
   );
 };
 

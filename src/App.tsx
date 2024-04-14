@@ -8,7 +8,6 @@ import SettingPage from './pages/settings';
 import ChatsPage from './pages/chats';
 import MaterialsPage from './pages/meterials';
 
-
 function App() {
   return (
     <Routes>

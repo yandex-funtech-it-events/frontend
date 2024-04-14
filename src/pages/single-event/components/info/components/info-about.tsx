@@ -11,7 +11,12 @@ const InfoAbout: React.FC = () => {
         Дизайн выходные
       </Typography>
       <Chips />
-      <Typography variant="body1" sx={{ height: '168px', marginBottom: '78px' }} mt={5}>
+      <Typography
+        component="p"
+        variant="body1"
+        sx={{ height: '168px', marginBottom: '78px' }}
+        mt={5}
+      >
         Описание мероприятия
       </Typography>
 
@@ -19,10 +24,8 @@ const InfoAbout: React.FC = () => {
         variant="contained"
         style={{
           display: 'flex',
-          alignItems: 'center',
-          padding: '32px',
+          padding: '30px',
           width: '100%',
-          background: '#FF4D00',
           letterSpacing: '1px',
           textTransform: 'uppercase',
         }}

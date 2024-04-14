@@ -14,7 +14,7 @@ const AboutEvent: React.FC = () => {
     >
       <Typography
         component="h2"
-        variant="h2"
+        variant="h3"
         mb={5}
         sx={{ letterSpacing: '1px', textAlign: 'start' }}
         alignSelf="start"
