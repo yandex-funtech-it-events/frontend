@@ -32,7 +32,7 @@ const CustomTabCard: React.FC<CustomTabCardProps> = ({
       borderRadius="16px"
       boxShadow="0px 0px 10px 0px rgba(0, 0, 0, 0.05)"
       sx={{
-        background: '#F5F4F5',
+        background: '#fff',
       }}
     >
       <Box display="flex">
