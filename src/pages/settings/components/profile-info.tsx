@@ -21,6 +21,7 @@ const ProfileInfo = () => {
             px={8}
             pb={8}
             borderRadius={5}
+            width={680}
             sx={{
               background: 'rgba(20, 18, 22, 0.05)',
             }}

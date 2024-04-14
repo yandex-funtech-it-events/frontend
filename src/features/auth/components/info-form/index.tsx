@@ -20,12 +20,14 @@ import {
 } from '../../libs/constants.ts';
 import UploadImg from './components/upload-img.tsx';
 import { Dispatch, SetStateAction } from 'react';
+import { useLocation } from 'react-router-dom';
 
 type InfoFormProps = {
   setEditForm?: Dispatch<SetStateAction<boolean>>;
 };
 
 const InfoForm = ({ setEditForm }: InfoFormProps) => {
+  const { pathname } = useLocation();
   const {
     handleSubmit,
     control,
@@ -41,7 +43,7 @@ const InfoForm = ({ setEditForm }: InfoFormProps) => {
   const onSubmit: SubmitHandler<InfoFormType> = (data) => {
     console.log(data);
   };
-  console.log({ errors, val: getValues() });
+
   return (
     <Box
       px={15}
@@ -304,16 +306,18 @@ const InfoForm = ({ setEditForm }: InfoFormProps) => {
                 Сохранить
               </Button>
 
-              <Button
-                onClick={() => {
-                  if (setEditForm) {
-                    setEditForm(false);
-                  }
-                }}
-                color="secondary"
-              >
-                Заполнить позже
-              </Button>
+              {pathname !== '/auth' && (
+                <Button
+                  onClick={() => {
+                    if (setEditForm) {
+                      setEditForm(false);
+                    }
+                  }}
+                  color="secondary"
+                >
+                  Заполнить позже
+                </Button>
+              )}
             </Box>
           </Stack>
         </Stack>

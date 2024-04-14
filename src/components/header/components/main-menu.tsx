@@ -7,7 +7,7 @@ const MainMenu = () => {
       <Button href="/afisha" variant="link" size="large">
         Афиша
       </Button>
-      <Button href="/my-events" variant="contained" size="large">
+      <Button href="/auth" variant="contained" size="large">
         Войти
       </Button>
 

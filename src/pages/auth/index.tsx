@@ -4,7 +4,7 @@ import InfoForm from '../../features/auth/components/info-form';
 const AuthPage = () => {
   return (
     <Container>
-      <Box display="flex" gap={4} pt={11}>
+      <Box display="flex" gap={4} pt={25}>
         <Stack
           spacing={10}
           pt={12}
