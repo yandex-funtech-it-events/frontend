@@ -22,8 +22,8 @@ const MenuProps = {
 };
 
 type MultiSelectProps = {
-  options: string[];
-  value?: string[];
+  options: never[];
+  value?: never[];
   onChange?: (event: SelectChangeEvent<never[]>) => void;
   onReset?: () => void;
   placeholder?: string;

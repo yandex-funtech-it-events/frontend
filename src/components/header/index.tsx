@@ -17,7 +17,7 @@ const Header = () => {
       <Box
         width={1440}
         px={8}
-        pt={4}
+        py={4}
         sx={{
           margin: '0 auto',
         }}

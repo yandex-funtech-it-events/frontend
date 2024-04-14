@@ -54,8 +54,8 @@ const EventFilters = () => {
           />
 
           <MultiSelect
-            options={citiesMock}
-            value={cities}
+            options={citiesMock as never[]}
+            value={cities as never[]}
             onChange={handleChangeSelect}
             onReset={() => {
               onChange('cities', []);
