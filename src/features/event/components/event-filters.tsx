@@ -1,19 +1,15 @@
-import {
-  Box,
-  Chip,
-  FormControlLabel,
-  IconButton,
-  SelectChangeEvent,
-  Stack,
-  Switch,
-} from '@mui/material';
+import { Box, FormControlLabel, SelectChangeEvent, Stack, Switch } from '@mui/material';
 import * as React from 'react';
-import { CloseOutlined } from '@mui/icons-material';
 import { DatePicker } from '@mui/x-date-pickers';
 import { citiesMock, filtersDirectionsMock, filtersStatusMock } from '../../../libs/constants.ts';
 import Search from '../../../components/search.tsx';
 import MultiSelect from '../../../components/multi-select.tsx';
 import { useFilteredQuery } from '../../../hooks/use-filtered-query.ts';
+import ClearFilters from '../../../components/filters/clear-filters.tsx';
+import Tags from '../../../components/filters/tags.tsx';
+import Directions from '../../../components/filters/directions.tsx';
+import Statuses from '../../../components/filters/statuses.tsx';
+import SubDirections from '../../../components/filters/sub-directions.tsx';
 
 const EventFilters = () => {
   const {
@@ -94,149 +90,58 @@ const EventFilters = () => {
           />
         </Box>
 
-        {hasQuery && (
-          <IconButton
-            onClick={onReset}
-            sx={{
-              background: '#FF4D00',
-              '&:hover': {
-                background: '#FF6E2C',
-              },
-            }}
-          >
-            <CloseOutlined
-              sx={{
-                color: 'white',
-              }}
-            />
-          </IconButton>
-        )}
+        {hasQuery && <ClearFilters onClick={onReset} />}
       </Box>
 
       {tags.length > 0 && (
-        <Box display="flex" flexWrap="wrap" gap={3}>
-          {tags.map((item) => (
-            <Chip
-              key={item}
-              size="medium"
-              variant="outlined"
-              label={item}
-              onDelete={() =>
-                onChange(
-                  'tags',
-                  tags.filter((tag) => tag !== item)
-                )
-              }
-            />
-          ))}
-        </Box>
+        <Tags
+          tags={tags}
+          onDelete={(item) =>
+            onChange(
+              'tags',
+              tags.filter((tag) => tag !== item)
+            )
+          }
+        />
       )}
 
       <Box display="flex" alignItems="center" gap={10}>
-        <Box display="flex" gap={3}>
-          {Object.keys(filtersDirectionsMock).map((item) => (
-            <Chip
-              key={item}
-              size="medium"
-              label={item}
-              onClick={() => {
-                if (!directions.includes(item)) {
-                  onChange('directions', [...directions, item]);
-                }
+        <Directions
+          onClick={(item) => {
+            if (!directions.includes(item)) {
+              onChange('directions', [...directions, item]);
+            }
 
-                onChange('activeDirection', activeDirection === item ? '' : item);
-              }}
-              sx={{
-                color: directions.includes(item) ? 'white' : '',
-                background: directions.includes(item) ? 'rgba(0, 0, 0, 0.70)' : '',
-                '&:hover': {
-                  background: directions.includes(item) ? 'rgba(0, 0, 0, 0.87)' : '',
-                },
-              }}
-            />
-          ))}
-        </Box>
+            onChange('activeDirection', activeDirection === item ? '' : item);
+          }}
+          directions={Object.keys(filtersDirectionsMock)}
+          activeDirections={directions}
+        />
 
-        <Box display="flex" gap={3}>
-          {filtersStatusMock.map((item) => (
-            <Chip
-              key={item.label}
-              size="medium"
-              label={item.label}
-              onClick={() => {
-                onChange('format', item.label);
-              }}
-              sx={{
-                color: format === item.label ? 'white' : '',
-                background: format === item.label ? 'rgba(0, 0, 0, 0.70)' : '',
-                '&:hover': {
-                  background: format === item.label ? 'rgba(0, 0, 0, 0.87)' : '',
-                },
-              }}
-            />
-          ))}
-        </Box>
+        <Statuses
+          statuses={filtersStatusMock}
+          format={format}
+          onClick={(item) => {
+            onChange('format', item);
+          }}
+        />
       </Box>
 
       {filtersDirectionsMock[activeDirection]?.directions.length > 0 && activeDirection && (
-        <Box
-          px={4}
-          py={5}
-          display="flex"
-          justifyContent="space-between"
-          gap={7}
-          borderRadius={4}
-          sx={{
-            background: 'rgba(20, 18, 22, 0.05)',
+        <SubDirections
+          directions={filtersDirectionsMock[activeDirection]?.directions}
+          tags={tags}
+          onClick={(item) => onChange('tags', [...tags, item])}
+          onDelete={(item) =>
+            onChange(
+              'tags',
+              tags.filter((tag) => tag !== item)
+            )
+          }
+          onClose={() => {
+            onChange('activeDirection', '');
           }}
-        >
-          <Box display="flex" flexWrap="wrap" gap={3}>
-            {filtersDirectionsMock[activeDirection]?.directions.map((el) => {
-              if (tags.includes(el)) {
-                return (
-                  <Chip
-                    key={el}
-                    size="medium"
-                    variant="outlined"
-                    label={el}
-                    onClick={() => {
-                      onChange('tags', [...tags, el]);
-                    }}
-                    onDelete={() => {
-                      onChange(
-                        'tags',
-                        tags.filter((tag) => tag !== el)
-                      );
-                    }}
-                  />
-                );
-              } else {
-                return (
-                  <Chip
-                    key={el}
-                    size="medium"
-                    variant="outlined"
-                    label={el}
-                    onClick={() => {
-                      onChange('tags', [...tags, el]);
-                    }}
-                  />
-                );
-              }
-            })}
-          </Box>
-
-          <IconButton
-            onClick={() => {
-              onChange('activeDirection', '');
-            }}
-            sx={{
-              alignSelf: 'flex-start',
-            }}
-          >
-            <CloseOutlined />
-          </IconButton>
-        </Box>
+        />
       )}
     </Stack>
   );
