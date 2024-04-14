@@ -18,3 +18,7 @@ export const convertQuery = (query: FilteredQueryType) => {
 
   return queryStr ? `?${queryStr}` : '';
 };
+
+export const getRandomInteger = (min: number, max: number): number => {
+  return Math.floor(min + Math.random() * (max + 1 - min));
+};

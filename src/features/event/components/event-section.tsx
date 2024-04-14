@@ -7,6 +7,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
 import EventListSkeleton from './event-list-skeleton.tsx';
 import { EventType } from '../types';
+import TextRunnerCircle from '../../../components/text-runner-circle.tsx';
+import RandomEvent from '../../../components/random-event.tsx';
 
 type EventSectionProps = {
   title?: string;
@@ -23,7 +25,7 @@ const EventSection = ({
   isAllEvents = false,
   isLoading = false,
 }: EventSectionProps) => {
-  const [howManyEventsShow, setHowManyEventsShow] = useState(4);
+  const [howManyEventsShow, setHowManyEventsShow] = useState(3);
 
   return (
     <Box component="section" display="flex" flexDirection="column" gap={13}>
@@ -60,7 +62,19 @@ const EventSection = ({
                     <BannerCard event={event} />
                   </ImageListItem>
                 );
-              } else if (index === 3) {
+              } else if (index === 1) {
+                return (
+                  <ImageListItem key={event.id} cols={2} rows={1}>
+                    <RandomEvent />
+                  </ImageListItem>
+                );
+              } else if (index === 2) {
+                return (
+                  <ImageListItem key={event.id} cols={2} rows={1}>
+                    <EventCard event={event} fullWidth />
+                  </ImageListItem>
+                );
+              } else if (index === 5) {
                 return (
                   <ImageListItem key={event.id} cols={2} rows={1}>
                     <EventCard event={event} fullWidth />
