@@ -15,14 +15,12 @@ const Register: React.FC = () => {
           Самый масштабный саммит о кибербезопасности в России по количеству участников и спикеров
         </Typography>
         <Button
+          variant="contained"
           sx={{
             display: 'flex',
             alignItems: 'center',
-            padding: '32px',
-            background: '#FF4D00',
+            padding: '17px',
             letterSpacing: '1px',
-            textTransform: 'uppercase',
-            color: 'white',
             maxWidth: '678px',
             width: '100%',
           }}
