@@ -14,7 +14,7 @@ const Footer = () => {
         position: 'relative',
         borderTopLeftRadius: '20px',
         borderTopRightRadius: '20px',
-        background: 'rgba(255, 255, 255, 0.80)',
+        background: '#F4F1ED',
         overflow: 'hidden',
       }}
     >
