@@ -6,7 +6,7 @@ import taxi from '../../../assets/icons/taxi.svg';
 
 const Map: React.FC = () => {
   return (
-    <Container sx={{ background: '#fff' }}>
+    <Container>
       <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={20}>
         <Typography component="h2" variant="h3" mb={10} alignSelf="start">
           Карта

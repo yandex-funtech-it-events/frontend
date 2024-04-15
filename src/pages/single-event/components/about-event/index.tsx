@@ -4,7 +4,7 @@ import FullInfo from './components/full-info';
 
 const AboutEvent: React.FC = () => {
   return (
-    <Container sx={{ background: '#fff' }}>
+    <Container>
       <Box
         component="section"
         display="flex"
