@@ -24,7 +24,7 @@ const FooterTabs: React.FC = () => {
               i === footerNavArray.length - 1 ? (
                 <Box key={i} display="flex" gap={1}>
                   <Link
-                    href="#header"
+                    href="#info"
                     sx={{
                       textDecoration: 'none',
                       textTransform: 'uppercase',

@@ -1,7 +1,9 @@
 import React from 'react';
+import { useModal } from '../../../hooks/use-modal.ts';
 import { Box, Typography, Button, Container } from '@mui/material';
 
 const Register: React.FC = () => {
+  const { onOpen } = useModal();
   return (
     <Container>
       <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={20}>
@@ -16,6 +18,7 @@ const Register: React.FC = () => {
         </Typography>
         <Button
           variant="contained"
+          onClick={() => onOpen('register-modal')}
           sx={{
             display: 'flex',
             alignItems: 'center',

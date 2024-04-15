@@ -276,8 +276,22 @@ const theme = createTheme({
       lineHeight: '150%',
       letterSpacing: '0.15px',
     },
+    body2: {
+      fontWeight: 400,
+      fontSize: '15px',
+      lineHeight: '130%',
+      letterSpacing: '0.15px',
+      color: 'rgba(0, 0, 0, 0.60)',
+    },
     button: {
       fontFamily: ['Roboto', 'sans-serif'].join(','),
+    },
+    caption: {
+      fontWeight: 900,
+      fontSize: '68px',
+      lineHeight: '120%',
+      letterSpacing: '1px',
+      color: 'white',
     },
   },
   palette: {

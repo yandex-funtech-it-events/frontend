@@ -168,7 +168,7 @@ export const footerNavArray = [
   { name: 'Сообщества', href: '#community' },
   { name: 'Вопросы', href: '#questions' },
   { name: 'Прошлый раз', href: '#howitwas' },
-  { name: 'В начало', href: '#header' },
+  { name: 'В начало', href: '#info' },
 ];
 
 export const menuLinkMock = [

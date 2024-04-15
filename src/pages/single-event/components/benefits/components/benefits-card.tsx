@@ -18,7 +18,9 @@ const BenefitsCard: React.FC<BenefitsCardProps> = ({ number, description }) => {
       width="100%"
     >
       <Typography variant="caption">{number}</Typography>
-      <Typography variant="h6">{description}</Typography>
+      <Typography variant="h6" color="#fff">
+        {description}
+      </Typography>
     </Box>
   );
 };

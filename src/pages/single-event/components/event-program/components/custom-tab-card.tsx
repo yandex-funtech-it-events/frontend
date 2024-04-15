@@ -53,7 +53,9 @@ const CustomTabCard: React.FC<CustomTabCardProps> = ({
 
       <Box display="flex" sx={{ gap: '8px' }}>
         <Box display="flex" flexDirection="column">
-          <Typography variant="body2">{data}</Typography>
+          <Typography variant="body2" color="rgba(0, 0, 0, 0.87)">
+            {data}
+          </Typography>
           <Typography variant="body2" textAlign="center">
             {profession}
           </Typography>
