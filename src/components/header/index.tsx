@@ -11,7 +11,7 @@ const Header = () => {
         margin: '0 auto',
         background: 'white',
         position: 'fixed',
-        zIndex: '999999999999999',
+        zIndex: '1000',
       }}
     >
       <Box

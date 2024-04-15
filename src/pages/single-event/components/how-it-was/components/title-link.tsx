@@ -3,7 +3,8 @@ import { Link, Typography } from '@mui/material';
 const TitleLink: React.FC = () => {
   return (
     <Link
-      href="#header"
+      href="#info"
+      component="a"
       sx={{
         textDecoration: 'none',
         color: '#2196F3',

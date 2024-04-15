@@ -6,7 +6,14 @@ const Register: React.FC = () => {
   const { onOpen } = useModal();
   return (
     <Container>
-      <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={20}>
+      <Box
+        id="register"
+        component="section"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        mb={20}
+      >
         <Typography component="h2" variant="h3" mb={10} alignSelf="start">
           Регистрация
         </Typography>

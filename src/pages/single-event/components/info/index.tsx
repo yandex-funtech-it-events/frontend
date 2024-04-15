@@ -7,7 +7,7 @@ import InfoCard from './components/info-card';
 const Info: React.FC = () => {
   return (
     <Container>
-      <Box component="section" display="flex" mt={20} gap={4}>
+      <Box id="info" component="section" display="flex" mt={20} gap={4}>
         <Box sx={{ width: '50%' }} display="flex" flexDirection="column">
           <InfoTop />
           <InfoAbout />
