@@ -1,7 +1,18 @@
 import * as React from 'react';
-import { Box, IconButton, Menu, Typography } from '@mui/material';
+import {
+  Box,
+  Divider,
+  IconButton,
+  Link,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+  MenuList,
+  Typography,
+} from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import Navigation from '../../navigation.tsx';
+import { menuLinkMock } from '../../../libs/constants.ts';
 
 const UserMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -34,7 +45,7 @@ const UserMenu = () => {
       </Box>
 
       <Menu
-        sx={{ mt: { xs: '245px', md: '50px' } }}
+        sx={{ mt: { xs: '245px', md: '60px' } }}
         anchorOrigin={{
           vertical: 'top',
           horizontal: 'right',
@@ -49,7 +60,48 @@ const UserMenu = () => {
         open={open}
         onClose={handleClose}
       >
-        <Navigation showDivider nestedPath="/profile" />
+        <Box component="nav">
+          <MenuList>
+            {menuLinkMock.slice(0, 1).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                underline="none"
+                color="text.secondary"
+                sx={{
+                  textTransform: 'uppercase',
+                }}
+              >
+                <MenuItem>
+                  <ListItemIcon>
+                    <link.icon />
+                  </ListItemIcon>
+                  <ListItemText>{link.label}</ListItemText>
+                </MenuItem>
+              </Link>
+            ))}
+
+            <Divider />
+
+            {menuLinkMock.slice(-1).map((link) => (
+              <Link
+                key={link.href}
+                underline="none"
+                color="text.secondary"
+                sx={{
+                  textTransform: 'uppercase',
+                }}
+              >
+                <MenuItem>
+                  <ListItemIcon>
+                    <link.icon />
+                  </ListItemIcon>
+                  <ListItemText>{link.label}</ListItemText>
+                </MenuItem>
+              </Link>
+            ))}
+          </MenuList>
+        </Box>
       </Menu>
     </>
   );

@@ -35,7 +35,6 @@ const EventCard = ({
       flexDirection="column"
       borderRadius={5}
       width={fullWidth ? '100%' : eventSize === 'sm' ? 331 : 581}
-      // width={1}
       minHeight={isProfile ? 240 : 415}
       height={1}
       sx={{
@@ -94,7 +93,7 @@ const EventCard = ({
             </IconButton>
           </Box>
 
-          <Link href="/" color="text.secondary" underline="none">
+          <Link href={`${event.id}`} color="text.secondary" underline="none">
             <Box
               display="flex"
               flexDirection="column"

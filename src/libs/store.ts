@@ -4,8 +4,18 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import api from './api.ts';
 import { filteredQuerySlice } from '../slices/filtered-query-slice.ts';
 import { eventSlice } from '../features/event/slices';
+import { modalSlice } from '../slices/modal-slice.ts';
+import { userSlice } from '../features/user/slices';
+import { authSlice } from '../features/auth/slices';
 
-const rootReducer = combineSlices(api, filteredQuerySlice, eventSlice);
+const rootReducer = combineSlices(
+  api,
+  authSlice,
+  filteredQuerySlice,
+  eventSlice,
+  modalSlice,
+  userSlice
+);
 
 const store = configureStore({
   reducer: rootReducer,
