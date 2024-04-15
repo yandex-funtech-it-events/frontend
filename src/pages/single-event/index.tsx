@@ -8,7 +8,7 @@ import Map from './components/map';
 import Community from './components/community';
 import Questions from './components/questions';
 import HowItWas from './components/how-it-was';
-//import EventProgram from './components/event-program';
+import EventProgram from './components/event-program';
 import FooterTabs from './components/footer-tabs';
 import RegisterModal from './components/register-modal';
 
@@ -19,7 +19,7 @@ const SingleEvent: React.FC = () => {
       <AboutEvent />
       <Benefits />
       <Speakers />
-      {/* <EventProgram /> */}
+      <EventProgram />
       <Register />
       <Map />
       <Community />

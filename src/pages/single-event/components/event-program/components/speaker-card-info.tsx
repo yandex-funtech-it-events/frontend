@@ -3,8 +3,8 @@ import { Box, Typography } from '@mui/material';
 import author from '../../../../../assets/images/mock_program_speaker.png';
 
 interface SpeakerCardProps {
-  name: 'string';
-  profession: 'string';
+  name: string;
+  profession: string;
 }
 
 const SpeakerCard: React.FC<SpeakerCardProps> = ({ name, profession }) => {
