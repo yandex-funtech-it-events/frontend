@@ -1,17 +1,19 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 
 import Carousel from './components/carousel';
 
 const HowItWas: React.FC = () => {
   return (
-    <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={20}>
-      <Typography component="h2" variant="h3" mb={10} alignSelf="start">
-        Как это было в прошлый раз
-      </Typography>
+    <Container>
+      <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={20}>
+        <Typography component="h2" variant="h3" mb={10} alignSelf="start">
+          Как это было в прошлый раз
+        </Typography>
 
-      <Carousel />
-    </Box>
+        <Carousel />
+      </Box>
+    </Container>
   );
 };
 

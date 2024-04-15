@@ -1,7 +1,6 @@
 import TicketIcon from '../components/icons/ticket-icons.tsx';
 import ExitIcon from '../components/icons/exit-icons.tsx';
 import SettingsIcon from '../components/icons/settings-icons.tsx';
-import BellIcon from '../components/icons/bell-icon.tsx';
 import FolderIcon from '../components/icons/folder-icons.tsx';
 import ChatIcon from '../components/icons/chat-icons.tsx';
 import { FilterDirectionType } from '../types';
@@ -161,15 +160,15 @@ export const mockAccordionData = [
 ];
 
 export const footerNavArray = [
-  { name: 'О мероприятии' },
-  { name: 'Спикеры' },
-  { name: 'Программа' },
-  { name: 'Регистрация' },
-  { name: 'Карта' },
-  { name: 'Сообщества' },
-  { name: 'Вопросы' },
-  { name: 'Прошлый раз' },
-  { name: 'В начало' },
+  { name: 'О мероприятии', href: '#about' },
+  { name: 'Спикеры', href: '#speakers' },
+  { name: 'Программа', href: '#program' },
+  { name: 'Регистрация', href: '#register' },
+  { name: 'Карта', href: '#map' },
+  { name: 'Сообщества', href: '#community' },
+  { name: 'Вопросы', href: '#questions' },
+  { name: 'Прошлый раз', href: '#howitwas' },
+  { name: 'В начало', href: '#header' },
 ];
 
 export const menuLinkMock = [
@@ -248,4 +247,3 @@ export const defaultFilterValues = {
   search: '',
   date: null,
 };
-

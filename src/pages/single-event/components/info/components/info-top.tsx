@@ -7,7 +7,7 @@ const InfoTop: React.FC = () => {
     <Box display="flex" justifyContent="space-between" mb={25}>
       <Box display="flex" flexDirection="column" gap={6}>
         {mockInfoArray.map((text, i) => (
-          <Typography variant="h6" key={i}>
+          <Typography component="span" variant="h6" key={i}>
             {text}
           </Typography>
         ))}
