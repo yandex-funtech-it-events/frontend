@@ -4,7 +4,7 @@ import { EventType } from '../types';
 export const eventApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getEvents: builder.query<EventType[], void>({
-      query: () => `/events`,
+      query: () => `/events/`,
     }),
   }),
 });

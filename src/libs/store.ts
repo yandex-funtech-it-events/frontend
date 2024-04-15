@@ -5,8 +5,17 @@ import api from './api.ts';
 import { filteredQuerySlice } from '../slices/filtered-query-slice.ts';
 import { eventSlice } from '../features/event/slices';
 import { modalSlice } from '../slices/modal-slice.ts';
+import { userSlice } from '../features/user/slices';
+import { authSlice } from '../features/auth/slices';
 
-const rootReducer = combineSlices(api, filteredQuerySlice, eventSlice, modalSlice);
+const rootReducer = combineSlices(
+  api,
+  authSlice,
+  filteredQuerySlice,
+  eventSlice,
+  modalSlice,
+  userSlice
+);
 
 const store = configureStore({
   reducer: rootReducer,
