@@ -5,7 +5,14 @@ import telegram from '../../../assets/icons/telegram.svg';
 const Community: React.FC = () => {
   return (
     <Container>
-      <Box component="section" display="flex" flexDirection="column" alignItems="center" mb={20}>
+      <Box
+        id="community"
+        component="section"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        mb={20}
+      >
         <Typography component="h2" variant="h3" mb={10} alignSelf="start">
           Сообщество
         </Typography>

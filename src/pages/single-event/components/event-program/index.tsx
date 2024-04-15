@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Typography, Tabs, Tab, Container } from '@mui/material';
 import CustomTabPanel from './components/custom-tab-panel';
-import CustomTabCard from './components/custom-tab-card';
+import CustomTabCard1 from './components/custom-tab-card1';
+import CustomTabCard2 from './components/custom-tab-card2';
 
 import { mockDataProgram } from '../../../../libs/constants';
 
@@ -19,9 +20,13 @@ const EventProgram: React.FC = () => {
     setValue(newValue);
   };
 
+  //получаем все data
+  const dataFromMockDataProgram = mockDataProgram.map((item) => item.data);
+
   return (
     <Container sx={{ background: '#F4F1ED' }}>
       <Box
+        id="program"
         component="section"
         display="flex"
         flexDirection="column"
@@ -49,31 +54,51 @@ const EventProgram: React.FC = () => {
           </Box>
 
           <CustomTabPanel value={value} index={0}>
-            {mockDataProgram.map((card, i) => (
-              <CustomTabCard
-                key={i}
-                time={card.time}
-                date={card.date}
-                description={card.description}
-                eventName={card.eventName}
-                data={card.data}
-                profession={card.profession}
-              />
-            ))}
+            {mockDataProgram.map((card, i) =>
+              dataFromMockDataProgram.length > 1 ? (
+                <CustomTabCard2
+                  key={i}
+                  time={card.time}
+                  date={card.date}
+                  description={card.description}
+                  eventName={card.eventName}
+                  data={card.data}
+                />
+              ) : (
+                <CustomTabCard1
+                  key={i}
+                  time={card.time}
+                  date={card.date}
+                  description={card.description}
+                  eventName={card.eventName}
+                  data={card.data}
+                />
+              )
+            )}
           </CustomTabPanel>
 
           <CustomTabPanel value={value} index={1}>
-            {mockDataProgram.map((card, i) => (
-              <CustomTabCard
-                key={i}
-                time={card.time}
-                date={card.date}
-                description={card.description}
-                eventName={card.eventName}
-                data={card.data}
-                profession={card.profession}
-              />
-            ))}
+            {mockDataProgram.map((card, i) =>
+              dataFromMockDataProgram.length > 1 ? (
+                <CustomTabCard2
+                  key={i}
+                  time={card.time}
+                  date={card.date}
+                  description={card.description}
+                  eventName={card.eventName}
+                  data={card.data}
+                />
+              ) : (
+                <CustomTabCard1
+                  key={i}
+                  time={card.time}
+                  date={card.date}
+                  description={card.description}
+                  eventName={card.eventName}
+                  data={card.data}
+                />
+              )
+            )}
           </CustomTabPanel>
         </Box>
       </Box>

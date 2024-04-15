@@ -5,7 +5,7 @@ import SpeakersSlider from './components/speakers-slider';
 const Speakers: React.FC = () => {
   return (
     <Container sx={{ background: '#fff' }}>
-      <Box component="section" display="flex" flexDirection="column" mt={20} mb={35}>
+      <Box id="speakers" component="section" display="flex" flexDirection="column" mt={20} mb={35}>
         <Typography component="h2" variant="h3" mb={15}>
           Спикеры
         </Typography>

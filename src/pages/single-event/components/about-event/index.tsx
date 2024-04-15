@@ -6,6 +6,7 @@ const AboutEvent: React.FC = () => {
   return (
     <Container>
       <Box
+        id="about"
         component="section"
         display="flex"
         flexDirection="column"

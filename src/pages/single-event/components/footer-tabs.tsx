@@ -1,9 +1,12 @@
 import React from 'react';
 import { Box, Link, Container } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { footerNavArray } from '../../../libs/constants';
 
 const FooterTabs: React.FC = () => {
+  const location = useLocation();
+
   return (
     <Container sx={{ background: '#fff' }}>
       <Box component="section" display="flex" justifyContent="center">
@@ -24,7 +27,8 @@ const FooterTabs: React.FC = () => {
               i === footerNavArray.length - 1 ? (
                 <Box key={i} display="flex" gap={1}>
                   <Link
-                    href="#header"
+                    href="#info"
+                    component="a"
                     sx={{
                       textDecoration: 'none',
                       textTransform: 'uppercase',
@@ -42,7 +46,8 @@ const FooterTabs: React.FC = () => {
               ) : (
                 <Link
                   key={i}
-                  href={item.href}
+                  component="a"
+                  href={location.pathname + item.href}
                   sx={{
                     textDecoration: 'none',
                     textTransform: 'uppercase',

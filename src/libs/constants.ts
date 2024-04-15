@@ -67,10 +67,14 @@ export const mockDataProgram = [
   {
     time: '9.00',
     date: '19 апреля',
-    description: 'Описание',
+    description:
+      'Lorem ipsum: Insert Lorem IpsumLorem ipsum: Insert Lorem IpsumLorem ipsum: Insert Lorem IpsumLorem ipsum: Insert Lorem IpsumLorem ipsum: Insert Lorem IpsumLorem ipsum: Insert Lorem Ipsum',
     eventName: 'Вводная часть',
-    data: 'Иванов Иван',
-    profession: 'Бухгалтер',
+    data: [
+      { name: 'Сидоров Петр', profession: 'Бухгалтер' },
+      { name: 'Сидоров Алексей', profession: 'Экономист' },
+      { name: 'Сидоров Петр', profession: 'Бухгалтер' },
+    ],
     img: '/qwerty.jpg',
   },
   {
@@ -78,8 +82,7 @@ export const mockDataProgram = [
     eventName: 'Проект КИ в VK',
     date: '19 апреля',
     description: 'Описание 1',
-    data: 'Сидоров Петр',
-    profession: 'Экономист',
+    data: [{ name: 'Сидоров Петр', profession: 'Бухгалтер' }],
     img: '/qwerty.jpg',
   },
   {
@@ -87,8 +90,7 @@ export const mockDataProgram = [
     date: '19 апреля',
     eventName: 'Цифровое будущее',
     description: 'Описание 2',
-    data: 'Сидоров Петр',
-    profession: 'Экономист',
+    data: [{ name: 'Сидоров Петр', profession: 'Бухгалтер' }],
     img: '/qwerty.jpg',
   },
 ];
@@ -168,7 +170,7 @@ export const footerNavArray = [
   { name: 'Сообщества', href: '#community' },
   { name: 'Вопросы', href: '#questions' },
   { name: 'Прошлый раз', href: '#howitwas' },
-  { name: 'В начало', href: '#header' },
+  { name: 'В начало', href: '#info' },
 ];
 
 export const menuLinkMock = [

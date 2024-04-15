@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../components/header';
 import Info from './components/info';
 import Benefits from './components/benefits';
 import AboutEvent from './components/about-event';
@@ -11,12 +10,11 @@ import Questions from './components/questions';
 import HowItWas from './components/how-it-was';
 import EventProgram from './components/event-program';
 import FooterTabs from './components/footer-tabs';
-import Footer from '../../components/footer';
+import RegisterModal from './components/register-modal';
 
 const SingleEvent: React.FC = () => {
   return (
     <>
-      <Header />
       <Info />
       <AboutEvent />
       <Benefits />
@@ -28,7 +26,7 @@ const SingleEvent: React.FC = () => {
       <Questions />
       <HowItWas />
       <FooterTabs />
-      <Footer />
+      <RegisterModal />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Toolbar } from '@mui/material';
+import { AppBar, Box, Toolbar } from '@mui/material';
 import MobileMenu from './components/mobile-menu.tsx';
 import MainMenu from './components/main-menu.tsx';
 import Logo from '../logo.tsx';
@@ -11,7 +11,7 @@ const Header = () => {
         margin: '0 auto',
         background: 'white',
         position: 'fixed',
-        zIndex: '999999999999999',
+        zIndex: '1000',
       }}
     >
       <Box
@@ -33,7 +33,6 @@ const Header = () => {
         </AppBar>
       </Box>
     </Box>
-
   );
 };
 

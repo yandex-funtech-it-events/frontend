@@ -1,23 +1,22 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import author from '../../../../../assets/images/mock_program_speaker.png';
+//import author from '../../../../../assets/images/mock_program_speaker.png';
+import SpeakerCard from './speaker-card-info';
 
 interface CustomTabCardProps {
   time: string;
   date: string;
-  data: string;
   eventName: string;
-  profession: string;
   description: string;
+  data: { name: string; profession: string }[];
 }
 
-const CustomTabCard: React.FC<CustomTabCardProps> = ({
+const CustomTabCard1: React.FC<CustomTabCardProps> = ({
   time,
   date,
-  data,
   eventName,
-  profession,
   description,
+  data,
 }) => {
   return (
     <Box
@@ -40,28 +39,24 @@ const CustomTabCard: React.FC<CustomTabCardProps> = ({
           <Typography variant="h6" sx={{ textAlign: 'center' }}>
             {time}
           </Typography>
-          <Typography variant="body2">{date}</Typography>
+          <Typography variant="body2" textAlign="center">
+            {date}
+          </Typography>
         </Box>
       </Box>
 
       <Box display="flex" flexDirection="column" gap={4}>
         <Typography variant="h6">{eventName}</Typography>
-        <Typography variant="body2" textAlign="left" sx={{ width: '474px' }}>
+        <Typography variant="body1" textAlign="left" sx={{ width: '474px' }}>
           {description}
         </Typography>
       </Box>
 
-      <Box display="flex" sx={{ gap: '8px' }}>
-        <Box display="flex" flexDirection="column">
-          <Typography variant="body2">{data}</Typography>
-          <Typography variant="body2" textAlign="center">
-            {profession}
-          </Typography>
-        </Box>
-        <img src={author as unknown as string} alt="Speaker" />
-      </Box>
+      {data.map((item, i) => (
+        <SpeakerCard key={i} name={item.name} profession={item.profession} />
+      ))}
     </Box>
   );
 };
 
-export default CustomTabCard;
+export default CustomTabCard1;

@@ -1,4 +1,4 @@
-import { Box, Button, Container, IconButton } from '@mui/material';
+import { Box, Button, IconButton } from '@mui/material';
 import Logo from './logo.tsx';
 import SiteTitle from './site-title.tsx';
 
