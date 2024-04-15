@@ -14,7 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="single-event" element={<SingleEvent />} />
+        <Route path=":id" element={<SingleEvent />} />
         <Route path="auth" element={<AuthPage />} />
 
         <Route path="profile" element={<ProfileLayout />}>

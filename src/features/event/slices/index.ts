@@ -4,10 +4,12 @@ import { eventApi } from '../services';
 
 type EventStateType = {
   events: EventType[];
+  event: EventType | null;
 };
 
 const initialState: EventStateType = {
   events: [],
+  event: null,
 };
 
 export const eventSlice = createSlice({

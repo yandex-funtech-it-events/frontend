@@ -1,20 +1,16 @@
-import { Box, Container, Stack } from '@mui/material';
-import Header from '../../components/header';
+import { Container, Stack } from '@mui/material';
 import TopTen from './components/top-ten.tsx';
 import Banner from './components/banner.tsx';
 import Hero from './components/hero.tsx';
 import EventSection from '../../features/event/components/event-section.tsx';
 import BannerRegister from './components/banner-register.tsx';
-import Footer from '../../components/footer.tsx';
 import EventFilters from '../../features/event/components/event-filters.tsx';
 import { useFilteredEvents } from '../../hooks/use-filtered-events.ts';
-import { useGetEventsQuery } from '../../features/event/services';
 import eventCard from '@/assets/images/event_card.png';
-import TextRunnerCircle from '../../components/text-runner-circle.tsx';
-import RandomEvent from '../../components/random-event.tsx';
+import { useEvents } from '../../features/event/hooks/use-events.ts';
 
 const HomePage = () => {
-  const { data: events, isLoading } = useGetEventsQuery();
+  const { events, isLoading } = useEvents();
   const { data: filteredEvents, isLoading: isLoadingFilteredEvents } = useFilteredEvents();
   const data = [
     {

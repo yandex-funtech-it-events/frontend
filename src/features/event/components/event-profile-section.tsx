@@ -1,7 +1,7 @@
 import { Box, InputAdornment, TextField, Typography } from '@mui/material';
 import EventCard from './event-card.tsx';
 import SearchIcon from '@mui/icons-material/Search';
-import { useEventSearch } from '../hooks/use-event-search.tsx';
+import { useEventSearch } from '../hooks/use-event-search.ts';
 import { EventType } from '../types';
 
 type EventProfileSectionProps = {
