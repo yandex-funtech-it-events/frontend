@@ -3,18 +3,20 @@ import UserMenu from './user-menu.tsx';
 import { useCurrentUser } from '../../../features/user/hooks/use-current-user.ts';
 
 const MainMenu = () => {
-  const { token } = useCurrentUser();
+  const { token, userInfo } = useCurrentUser();
 
   return (
     <Box display="flex" alignItems="center" gap={7} sx={{ display: { xs: 'none', md: 'flex' } }}>
       <Button href="/afisha" variant="link" size="large">
         Афиша
       </Button>
-      <Button href="/login" variant="contained" size="large">
-        Войти
-      </Button>
+      {!token && (
+        <Button href="/login" variant="contained" size="large">
+          Войти
+        </Button>
+      )}
 
-      {token && <UserMenu />}
+      {token && <UserMenu picture={userInfo?.info.image} />}
     </Box>
   );
 };

@@ -3,6 +3,7 @@ import ExitIcon from '../components/icons/exit-icons.tsx';
 import SettingsIcon from '../components/icons/settings-icons.tsx';
 import FolderIcon from '../components/icons/folder-icons.tsx';
 import ChatIcon from '../components/icons/chat-icons.tsx';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { FilterDirectionType } from '../types';
 
 export const posterImages = [
@@ -174,6 +175,11 @@ export const footerNavArray = [
 ];
 
 export const menuLinkMock = [
+  {
+    label: 'Профиль',
+    href: '/profile',
+    icon: PersonOutlineIcon,
+  },
   {
     label: 'Мои события',
     href: '/profile',

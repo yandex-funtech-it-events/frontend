@@ -20,6 +20,9 @@ export const eventSlice = createSlice({
     builder.addMatcher(eventApi.endpoints.getEvents.matchFulfilled, (state, { payload }) => {
       state.events = payload;
     });
+    builder.addMatcher(eventApi.endpoints.getEventById.matchFulfilled, (state, { payload }) => {
+      state.event = payload;
+    });
   },
   selectors: {
     getEvents: (state) => state.events,

@@ -101,6 +101,8 @@ const EventSection = ({
         </Stack>
       ) : isLoading ? (
         <EventListSkeleton />
+      ) : events.length === 0 ? (
+        <Typography variant="body1">Ничего не найдено</Typography>
       ) : (
         <EventList events={events} />
       )}

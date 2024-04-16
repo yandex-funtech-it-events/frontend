@@ -6,7 +6,10 @@ export const eventApi = api.injectEndpoints({
     getEvents: builder.query<EventType[], void>({
       query: () => `/events/`,
     }),
+    getEventById: builder.query<EventType, string>({
+      query: (id) => `/events/${id}/`,
+    }),
   }),
 });
 
-export const { useGetEventsQuery } = eventApi;
+export const { useGetEventsQuery, useGetEventByIdQuery } = eventApi;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Avatar,
   Box,
   Divider,
   IconButton,
@@ -14,7 +15,11 @@ import {
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { menuLinkMock } from '../../../libs/constants.ts';
 
-const UserMenu = () => {
+type UserMenuProps = {
+  picture?: string;
+};
+
+const UserMenu = ({ picture }: UserMenuProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -36,7 +41,7 @@ const UserMenu = () => {
           onClick={handleClick}
           color="inherit"
         >
-          <AccountCircle />
+          {picture ? <Avatar src={picture} /> : <AccountCircle />}
         </IconButton>
 
         <Typography component="p" sx={{ display: { xs: 'block', md: 'none' } }}>
