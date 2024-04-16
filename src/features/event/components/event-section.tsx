@@ -7,7 +7,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
 import EventListSkeleton from './event-list-skeleton.tsx';
 import { EventType } from '../types';
-import TextRunnerCircle from '../../../components/text-runner-circle.tsx';
 import RandomEvent from '../../../components/random-event.tsx';
 
 type EventSectionProps = {

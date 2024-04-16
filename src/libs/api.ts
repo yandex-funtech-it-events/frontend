@@ -11,6 +11,12 @@ const api = createApi({
       if (token) {
         headers.set('Authorization', `Bearer ${token}`);
       }
+
+      headers.set(
+        'Authorization',
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzODkzMzUxLCJpYXQiOjE3MTMyODg1NTEsImp0aSI6IjFmN2QxNGMwOTlhYTQzMmM5ODIyZmUxMTZmNzJmYjU5IiwidXNlcl9pZCI6MX0.53VLYVOzXO9EDUnLPCqsRjzRRmbXB4z_GhWajfShx0M'
+      );
+
       return headers;
     },
   }),

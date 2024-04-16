@@ -1,9 +1,8 @@
 import EventProfileSection from '../../features/event/components/event-profile-section.tsx';
-import { posterImages } from '../../libs/constants.ts';
-import { useGetEventsQuery } from '../../features/event/services';
+import { useEvents } from '../../features/event/hooks/use-events.ts';
 
 const MaterialsPage = () => {
-  const { data: events } = useGetEventsQuery();
+  const { events } = useEvents();
 
   return (
     <EventProfileSection
