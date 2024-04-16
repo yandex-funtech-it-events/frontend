@@ -14,15 +14,14 @@ import RequiredAuth from './features/auth/components/required-auth.tsx';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
+      <Route path="login" element={<LoginPage />} />
 
-        <Route path="login" element={<LoginPage />} />
-        <Route path="auth" element={<AuthPage />} />
+      <Route element={<RequiredAuth />}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="auth" element={<AuthPage />} />
+          <Route path="event/:id" element={<SingleEvent />} />
 
-        <Route path="event/:id" element={<SingleEvent />} />
-
-        <Route element={<RequiredAuth />}>
           <Route path="profile" element={<ProfileLayout />}>
             <Route index element={<ProfilePage />} />
             <Route path="settings" element={<SettingPage />} />
