@@ -1,7 +1,8 @@
-FROM node:latest as builder
+FROM node:21-alpine as build
 WORKDIR /front
-COPY package.json ./
+COPY . .
 RUN npm install
-COPY . ./
 RUN npm run build
-CMD cp -r dist result_build
+FROM alpine:latest as app
+WORKDIR /front
+COPY --from=build /front/dist /front/build
