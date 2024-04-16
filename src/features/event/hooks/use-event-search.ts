@@ -7,7 +7,9 @@ export const useEventSearch = (events: EventType[]) => {
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    const filter = filteredEvents.filter((event) => event.title.includes(search)) || [];
+    const filter =
+      filteredEvents.filter((event) => event.title.toLowerCase().includes(search.toLowerCase())) ||
+      [];
     setFilteredEvents(filter);
   };
 

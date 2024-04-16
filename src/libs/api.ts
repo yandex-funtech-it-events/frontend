@@ -21,6 +21,7 @@ const api = createApi({
     },
   }),
   endpoints: () => ({}),
+  tagTypes: ['Favorites'],
 });
 
 export default api;

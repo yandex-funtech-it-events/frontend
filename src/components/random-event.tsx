@@ -3,10 +3,9 @@ import { useModal } from '../hooks/use-modal.ts';
 import Backdrop from '@mui/material/Backdrop';
 import EventCard from '../features/event/components/event-card.tsx';
 import TextRunnerCircle from './text-runner-circle.tsx';
-import { useAppSelector } from '../libs/store.ts';
-import { eventSelectors } from '../features/event/slices';
 import { getRandomInteger } from '../libs/utils.ts';
 import { useState } from 'react';
+import { useEvents } from '../features/event/hooks/use-events.ts';
 
 const style = {
   position: 'absolute' as const,
@@ -22,8 +21,10 @@ const style = {
 
 const RandomEvent = () => {
   const { onOpen, onClose, isOpen, name } = useModal();
-  const events = useAppSelector(eventSelectors.getEvents);
-  const [eventIndex, setEventIndex] = useState(getRandomInteger(0, events.length));
+  const { events } = useEvents();
+  const [eventIndex, setEventIndex] = useState(
+    getRandomInteger(0, (events?.length as number) || 0)
+  );
 
   return (
     <>
@@ -44,12 +45,14 @@ const RandomEvent = () => {
           <Fade in={isOpen}>
             <Box sx={style}>
               <Box display="flex" flexDirection="column" alignItems="center" gap={10}>
-                <EventCard event={events[eventIndex]} fullWidth />
+                {events && <EventCard event={events[eventIndex]} fullWidth />}
                 <Typography id="transition-modal-title" variant="h3">
                   Случайное событие для вас
                 </Typography>
                 <Button
-                  onClick={() => setEventIndex(getRandomInteger(0, events.length))}
+                  onClick={() =>
+                    setEventIndex(getRandomInteger(0, (events?.length as number) || 0))
+                  }
                   variant="contained"
                   sx={{
                     width: 'fit-content',
