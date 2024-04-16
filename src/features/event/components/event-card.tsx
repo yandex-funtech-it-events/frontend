@@ -10,6 +10,7 @@ import {
   useDeleteUserFavoriteByEventIdMutation,
 } from '../../user/services/user-favorites-api.ts';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useEvents } from '../hooks/use-events.ts';
 
 const bull = (
   <Box component="span" sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
@@ -32,11 +33,12 @@ const EventCard = ({
   isProfile = false,
   buttonLabel,
 }: EventCardProps) => {
-  const { userInfo, favoritesEvents } = useCurrentUser();
+  const { userInfo } = useCurrentUser();
+  const { favorites } = useEvents();
   const [createFavorite] = useCreateUserFavoriteMutation();
   const [deleteFavorite] = useDeleteUserFavoriteByEventIdMutation();
   const [hover, setHover] = useState(false);
-  const isMyFavorite = favoritesEvents.find((event) => event.event === event.id);
+  const isMyFavorite = favorites.find((fav) => fav.event === event.id);
 
   const handleCreateFavorite = async () => {
     if (isMyFavorite) {
