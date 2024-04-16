@@ -3,6 +3,7 @@ import { FilteredQueryType } from '../types';
 
 type FilteredQueryStateType = {
   query: FilteredQueryType;
+  signal: boolean;
 };
 
 const initialState: FilteredQueryStateType = {
@@ -16,6 +17,7 @@ const initialState: FilteredQueryStateType = {
     search: '',
     date: null,
   },
+  signal: false,
 };
 
 export const filteredQuerySlice = createSlice({
@@ -24,6 +26,7 @@ export const filteredQuerySlice = createSlice({
   reducers: {
     setFilteredQuery: (state, action: PayloadAction<Partial<FilteredQueryType>>) => {
       state.query = { ...state.query, ...action.payload };
+      state.signal = true;
     },
     resetFilteredQueries: (state) => {
       state.query = {
@@ -36,10 +39,12 @@ export const filteredQuerySlice = createSlice({
         search: '',
         date: null,
       };
+      state.signal = false;
     },
   },
   selectors: {
     getFilteredQuery: (state) => state.query,
+    getFilteredSignal: (state) => state.signal,
   },
 });
 

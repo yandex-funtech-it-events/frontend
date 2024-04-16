@@ -5,11 +5,13 @@ import { filteredQuerySelectors } from '../slices/filtered-query-slice.ts';
 
 export const useFilteredEvents = () => {
   const query = useAppSelector(filteredQuerySelectors.getFilteredQuery);
+  const signal = useAppSelector(filteredQuerySelectors.getFilteredSignal);
   const convertedQuery = convertQuery(query);
   const { data, isLoading } = useGetFilteredEventsQuery(convertedQuery);
 
   return {
     data,
     isLoading,
+    signal,
   };
 };
