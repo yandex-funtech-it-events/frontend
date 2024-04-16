@@ -14,12 +14,15 @@ import {
 } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { menuLinkMock } from '../../../libs/constants.ts';
+import { useAppDispatch } from '../../../libs/store.ts';
+import { authActions } from '../../../features/auth/slices';
 
 type UserMenuProps = {
   picture?: string;
 };
 
 const UserMenu = ({ picture }: UserMenuProps) => {
+  const dispatch = useAppDispatch();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -90,6 +93,7 @@ const UserMenu = ({ picture }: UserMenuProps) => {
 
             {menuLinkMock.slice(-1).map((link) => (
               <Link
+                onClick={() => dispatch(authActions.logout())}
                 key={link.href}
                 underline="none"
                 color="text.secondary"

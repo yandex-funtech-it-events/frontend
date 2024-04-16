@@ -12,7 +12,12 @@ const initialState: AuthStateType = {
 export const authSlice = createSlice({
   name: 'authSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.token = null;
+      localStorage.removeItem('token');
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(authApi.endpoints.login.matchFulfilled, (state, { payload }) => {
       state.token = payload.access;

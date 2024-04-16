@@ -50,7 +50,7 @@ const LoginForm = () => {
       <Snack
         isOpen={isOpen}
         onClose={onClose}
-        variant={modalInfo?.variant ? modalInfo.variant : ''}
+        variant={modalInfo?.variant ? modalInfo.variant : 'success'}
         text={modalInfo?.text as string}
       />
 
