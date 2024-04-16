@@ -1,18 +1,22 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
-import speaker from '../../../../../assets/images/mock_speaker.png';
 
 interface SpeakerCardProps {
   data: string;
   profession: string;
+  link: string;
 }
 
-const SpeakerCard: React.FC<SpeakerCardProps> = ({ data, profession }) => {
+const SpeakerCard: React.FC<SpeakerCardProps> = ({ data, profession, link }) => {
   return (
     <Box display="flex" flexDirection="column" gap={4} width="216px">
-      <img src={speaker} alt="Speaker" />
-      <Typography variant="body2">{data}</Typography>
-      <Typography variant="body1">{profession}</Typography>
+      <img
+        src={link}
+        alt="Speaker"
+        style={{ width: '216px', height: '216px', borderRadius: '12px' }}
+      />
+      <Typography variant="body1">{data}</Typography>
+      <Typography variant="body2">{profession}</Typography>
     </Box>
   );
 };
