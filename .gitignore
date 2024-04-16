@@ -17,7 +17,7 @@
 .vscode
 # production
 /build
-
+.vite
 # misc
 .DS_Store
 *.pem

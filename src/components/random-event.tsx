@@ -6,6 +6,8 @@ import TextRunnerCircle from './text-runner-circle.tsx';
 import { getRandomInteger } from '../libs/utils.ts';
 import { useState } from 'react';
 import { useEvents } from '../features/event/hooks/use-events.ts';
+import { useAppSelector } from '../libs/store.ts';
+import { eventSelectors } from '../features/event/slices';
 
 const style = {
   position: 'absolute' as const,
@@ -21,9 +23,9 @@ const style = {
 
 const RandomEvent = () => {
   const { onOpen, onClose, isOpen, name } = useModal();
-  const { events } = useEvents();
+  const events = useAppSelector(eventSelectors.getEvents);
   const [eventIndex, setEventIndex] = useState(
-    getRandomInteger(0, (events?.length as number) || 0)
+    getRandomInteger(0, (events?.length as number) - 1 || 0)
   );
 
   return (
@@ -51,7 +53,7 @@ const RandomEvent = () => {
                 </Typography>
                 <Button
                   onClick={() =>
-                    setEventIndex(getRandomInteger(0, (events?.length as number) || 0))
+                    setEventIndex(getRandomInteger(0, (events?.length as number) - 1 || 0))
                   }
                   variant="contained"
                   sx={{
