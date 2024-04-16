@@ -25,10 +25,14 @@ export const eventSlice = createSlice({
     builder.addMatcher(eventApi.endpoints.getEventsById.matchFulfilled, (state, { payload }) => {
       state.event = payload;
     });
+    builder.addMatcher(eventApi.endpoints.getAllReports.matchFulfilled, (state, { payload }) => {
+      state.reports = payload;
+    });
   },
   selectors: {
     getEvents: (state) => state.events,
     getEvent: (state) => state.event,
+    getReports: (state) => state.reports,
   },
 });
 

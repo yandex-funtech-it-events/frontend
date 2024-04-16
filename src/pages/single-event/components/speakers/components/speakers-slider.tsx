@@ -5,10 +5,12 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import EastIcon from '@mui/icons-material/East';
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import SpeakerCard from './speakers-card';
-import { mockDataSpeakers } from '../../../../../libs/constants';
+import { useAppSelector } from '../../../../../libs/store';
+import { eventSelectors } from '../../../../../features/event/slices';
 
 const SpeakersSlider: React.FC = () => {
   const sliderRef = React.useRef<SwiperRef>(null);
+  const reports = useAppSelector(eventSelectors.getReports);
 
   const handlePrev = React.useCallback(() => {
     if (!sliderRef.current) return;
@@ -31,9 +33,14 @@ const SpeakersSlider: React.FC = () => {
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             loop
           >
-            {mockDataSpeakers.map((card, i) => (
+            {reports.map((card, i) => (
               <SwiperSlide key={i}>
-                <SpeakerCard key={i} data={card.data} profession={card.profession} />
+                <SpeakerCard
+                  key={i}
+                  data={card.speaker}
+                  profession={card.position}
+                  link={card.speaker_photo}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

@@ -11,23 +11,33 @@ import HowItWas from './components/how-it-was';
 import EventProgram from './components/event-program';
 import FooterTabs from './components/footer-tabs';
 import RegisterModal from './components/register-modal';
-//import { useGetEventsByIdQuery } from '../../features/event/services';
+import { useGetEventsByIdQuery, useGetAllReportsQuery } from '../../features/event/services';
+import CircularColor from './components/spinner';
 
 const SingleEvent: React.FC = () => {
+  const { isLoading } = useGetEventsByIdQuery('1');
+  useGetAllReportsQuery('1');
+
   return (
     <>
-      <Info />
-      <AboutEvent />
-      <Benefits />
-      <Speakers />
-      <EventProgram />
-      <Register />
-      <Map />
-      <Community />
-      <Questions />
-      <HowItWas />
-      <FooterTabs />
-      <RegisterModal />
+      {isLoading ? (
+        <CircularColor />
+      ) : (
+        <>
+          <Info />
+          <AboutEvent />
+          <Benefits />
+          <Speakers />
+          <EventProgram />
+          <Register />
+          <Map />
+          <Community />
+          <Questions />
+          <HowItWas />
+          <FooterTabs />
+          <RegisterModal />
+        </>
+      )}
     </>
   );
 };
