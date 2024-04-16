@@ -22,3 +22,8 @@ export const infoFormSchema = yup.object({
       return !file || file?.size < 1024 * 1024 * 5;
     }),
 });
+
+export const loginFormSchema = yup.object({
+  username: yup.string().required('Обязательное поле'),
+  password: yup.string().required('Обязательное поле'),
+});

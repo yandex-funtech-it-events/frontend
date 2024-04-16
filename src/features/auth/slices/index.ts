@@ -6,7 +6,7 @@ type AuthStateType = {
 };
 
 const initialState: AuthStateType = {
-  token: null,
+  token: localStorage.getItem('token') || null,
 };
 
 export const authSlice = createSlice({
@@ -16,6 +16,7 @@ export const authSlice = createSlice({
   extraReducers: (builder) => {
     builder.addMatcher(authApi.endpoints.login.matchFulfilled, (state, { payload }) => {
       state.token = payload.access;
+      localStorage.setItem('token', payload.access);
     });
   },
   selectors: {
