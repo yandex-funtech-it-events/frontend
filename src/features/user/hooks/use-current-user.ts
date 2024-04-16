@@ -5,12 +5,13 @@ import { useGetUserFavoritesQuery } from '../services/user-favorites-api.ts';
 
 export const useCurrentUser = () => {
   const { data: userData } = useGetCurrentUserQuery();
-  const { data: favoritesEventsData } = useGetUserFavoritesQuery(userData?.id as number);
+  const { data: favoritesEventsData } = useGetUserFavoritesQuery();
+  const favorites = favoritesEventsData?.filter((event) => event.user === userData?.id) || [];
   const token = useAppSelector(authSelectors.getToken);
 
   return {
     userInfo: userData,
-    favoritesEvents: favoritesEventsData,
+    favoritesEvents: favorites,
     token,
   };
 };

@@ -30,7 +30,7 @@ const Footer = () => {
             <Logo />
 
             <Box>
-              <Button href="/afisha" variant="link">
+              <Button href="/" variant="link">
                 Афиша
               </Button>
               <Button href="/profile" variant="link">

@@ -4,6 +4,12 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from 'react';
 import { EventType } from '../types';
 import dayjs from 'dayjs';
+import { useCurrentUser } from '../../user/hooks/use-current-user.ts';
+import {
+  useCreateUserFavoriteMutation,
+  useDeleteUserFavoriteByEventIdMutation,
+} from '../../user/services/user-favorites-api.ts';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const bull = (
   <Box component="span" sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
@@ -26,7 +32,23 @@ const EventCard = ({
   isProfile = false,
   buttonLabel,
 }: EventCardProps) => {
+  const { userInfo, favoritesEvents } = useCurrentUser();
+  const [createFavorite] = useCreateUserFavoriteMutation();
+  const [deleteFavorite] = useDeleteUserFavoriteByEventIdMutation();
   const [hover, setHover] = useState(false);
+  const isMyFavorite = favoritesEvents.find((event) => event.event === event.id);
+
+  const handleCreateFavorite = async () => {
+    if (isMyFavorite) {
+      await deleteFavorite(isMyFavorite.id);
+    } else {
+      const data = {
+        user: userInfo?.id as number,
+        event: event.id,
+      };
+      await createFavorite(data);
+    }
+  };
 
   return (
     <Box
@@ -41,8 +63,8 @@ const EventCard = ({
         background:
           hover && isProfile
             ? '#FF6E2C'
-            : event.slide
-              ? `url(${event.slide})`
+            : event.picture
+              ? `url(${event.picture})`
               : `url(${eventCard})`,
         backgroundPosition: 'center center',
         backgroundSize: 'cover',
@@ -67,10 +89,11 @@ const EventCard = ({
         >
           <Stack spacing={3} display="flex" flexDirection="column" justifyContent="space-between">
             <Typography variant="subtitle2" className="display-1-string">
-              {dayjs(event.start_at).format('DD/MM/YYYY')} {bull} {event.format} {bull} {event.city}
+              {dayjs(event.date_start).format('DD/MM/YYYY')} {bull} {event.format} {bull}{' '}
+              {event.city}
             </Typography>
             <Typography variant="h6" className="display-3-string">
-              {event.name}
+              {event.title}
             </Typography>
           </Stack>
 
@@ -83,13 +106,24 @@ const EventCard = ({
       ) : (
         <>
           <Box display="flex" justifyContent="space-between" px={4} py={2} sx={{ flexGrow: '1' }}>
-            <Chip size="small" label="Регистрация открыта" sx={{ color: 'white' }} />
-            <IconButton sx={{ alignSelf: 'start' }}>
-              <FavoriteBorderIcon
-                sx={{
-                  color: 'white',
-                }}
-              />
+            {event.registration_open && (
+              <Chip size="small" label="Регистрация открыта" sx={{ color: 'white' }} />
+            )}
+
+            <IconButton onClick={handleCreateFavorite} sx={{ alignSelf: 'start' }}>
+              {isMyFavorite ? (
+                <FavoriteIcon
+                  sx={{
+                    color: 'white',
+                  }}
+                />
+              ) : (
+                <FavoriteBorderIcon
+                  sx={{
+                    color: 'white',
+                  }}
+                />
+              )}
             </IconButton>
           </Box>
 
@@ -106,11 +140,11 @@ const EventCard = ({
               }}
             >
               <Typography variant="subtitle2" className="display-1-string">
-                {dayjs(event.start_at).format('DD/MM/YYYY')} {bull} {event.format} {bull}{' '}
+                {dayjs(event.date_start).format('DD/MM/YYYY')} {bull} {event.format} {bull}{' '}
                 {event.city}
               </Typography>
               <Typography variant="h6" className="display-3-string">
-                {event.name}
+                {event.title}
               </Typography>
               <Collapse in={hover} timeout="auto">
                 <Typography variant="body1">{event.description}</Typography>

@@ -20,20 +20,23 @@ const BannerCard = ({ event, isSlider = false }: BannerCardProps) => {
       borderRadius={4}
       sx={{
         width: isSlider ? '90%' : '100%',
-        backgroundImage: event.slide ? `url(${event.slide})` : `url(${eventCard})`,
+        backgroundImage: event.picture ? `url(${event.picture})` : `url(${eventCard})`,
         backgroundPosition: 'center center',
         backgroundSize: 'cover',
       }}
     >
       <Box display="flex" flexDirection="column" gap={5}>
-        <Box display="flex" gap={2}>
-          <Chip size="small" label="Chip Filled" sx={{ color: 'white' }} />
-          <Chip size="small" label="Chip Filled" sx={{ color: 'white' }} />
-        </Box>
+        {event.tags.length > 0 && (
+          <Box display="flex" gap={2}>
+            {event.tags.map((tag) => (
+              <Chip key={tag.id} size="small" label={tag.name} sx={{ color: 'white' }} />
+            ))}
+          </Box>
+        )}
 
         <Box display="flex" flexDirection="column" gap={3} sx={{ width: '50%' }}>
           <Typography variant="h2" color="white">
-            {event.name}
+            {event.title}
           </Typography>
           <Typography
             variant="h6"
@@ -42,7 +45,7 @@ const BannerCard = ({ event, isSlider = false }: BannerCardProps) => {
               paddingBottom: isSlider ? '48px' : '',
             }}
           >
-            25 экспертов расскажут вам что-то крутое
+            {event.description}
           </Typography>
         </Box>
       </Box>
@@ -51,6 +54,7 @@ const BannerCard = ({ event, isSlider = false }: BannerCardProps) => {
         <Button
           size="large"
           variant="contained"
+          href={`event/${event.id}`}
           sx={{
             width: 'fit-content',
             display: 'flex',
