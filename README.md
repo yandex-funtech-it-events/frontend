@@ -1,30 +1,75 @@
-# React + TypeScript + Vite
+# Yandex FunTech IT Meetups API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Оглавление <a id="contents"></a>
 
-Currently, two official plugins are available:
+1. [О проекте](#about)
+2. [Авторы проекта](#authors)
+3. [Стек технологий](#tools)
+4. [Обязательные ключи](#key)
+5. [Запуск](#start)
+6. [Backend](#backend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## О проекте <a id="about"></a>
 
-## Expanding the ESLint configuration
+Сервис для участников it мероприятий.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+[https://meetup.ddns.net/](https://meetup.ddns.net/)
 
-- Configure the top-level `parserOptions` property like this:
+## Авторы проекта <a id="authors"></a>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Команда:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Project manager
+    - Петелина Александра (TG) [@Picha_pich](https://t.me/Picha_pich)
+
+- Business analytics
+    - Павлова Мария (TG [@MariaPavlova111](https://t.me/MariaPavlova111))
+
+- System analytics
+    - Джага Артем (TG [@purple_SU](https://t.me/purple_SU))
+    - Титов Владислав (TG [@Vladislav7](https://t.me/Vladislav7))
+    - Дунаевский Евгений (TG [@Evgeniy_Dunaevskiy](https://t.me/Evgeniy_Dunaevskiy))
+
+- Designers
+    - Суслов Андрей (TG [@s_aandrei](https://t.me/s_aandrei))
+    - Черепова Александра (TG [@Cherepova_alex](https://t.me/Cherepova_alex))
+
+- Frontend
+    - [Мытников Дмитрий](https://github.com/Dimitry-prog) (TG [@Dmitry_Myt](https://t.me/Dmitry_Myt))
+    - [Боднюк Анастасия](https://github.com/Chill-Peppa) (TG [@chill_peppa](https://t.me/chill_peppa))
+
+- Backend
+    - [Лашков Павел](https://github.com/hutji) (TG [@hutjinator](https://t.me/hutjinator))
+    - [Бобков Константин](https://github.com/deltabobkov) (TG [@Bi_oKey](https://t.me/Bi_oKey))
+    - [Сидельцева Мария](https://github.com/mvs51) (TG [@sub_mar](https://t.me/sub_mar))
+
+## Стек технологий <a id="tools"></a>
+
+* React
+* Redux Toolkit
+* Typescript
+* react router
+* react hook form
+* yup
+* material ui
+* eslint
+* prettier
+
+### Пример обязательных ключей<a id="key"></a>
+
+<details><summary>Ключи</summary>
+
+* VITE_API_BASE_URL=https://meetup.ddns.net/api/v1
+
+</details>
+
+## Запуск <a id="start"></a>
+
+> * установка зависимостей: npm install
+> * старт проекта: npm run dev
+
+## Backend <a id="backend"></a>
+
+[Ссылка на репозиторий](https://github.com/yandex-funtech-it-events/backend)
+
+[Оглавление](#contents)
