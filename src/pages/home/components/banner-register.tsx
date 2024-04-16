@@ -28,7 +28,7 @@ const BannerRegister = () => {
         Зарегистрируйся на Meetup и получи доступ к 200 событий в сфере IT
       </Typography>
       <Button
-        href="/"
+        href="/login"
         size="large"
         variant="contained"
         sx={{

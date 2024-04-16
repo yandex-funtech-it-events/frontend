@@ -93,7 +93,7 @@ const EventCard = ({
             </IconButton>
           </Box>
 
-          <Link href={`${event.id}`} color="text.secondary" underline="none">
+          <Link href={`event/${event.id}`} color="text.secondary" underline="none">
             <Box
               display="flex"
               flexDirection="column"

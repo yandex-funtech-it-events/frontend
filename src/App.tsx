@@ -8,20 +8,27 @@ import SettingPage from './pages/settings';
 import ChatsPage from './pages/chats';
 import MaterialsPage from './pages/meterials';
 import Layout from './components/layout.tsx';
+import LoginPage from './pages/login';
+import RequiredAuth from './features/auth/components/required-auth.tsx';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path=":id" element={<SingleEvent />} />
+
+        <Route path="login" element={<LoginPage />} />
         <Route path="auth" element={<AuthPage />} />
 
-        <Route path="profile" element={<ProfileLayout />}>
-          <Route index element={<ProfilePage />} />
-          <Route path="settings" element={<SettingPage />} />
-          <Route path="chats" element={<ChatsPage />} />
-          <Route path="materials" element={<MaterialsPage />} />
+        <Route path="event/:id" element={<SingleEvent />} />
+
+        <Route element={<RequiredAuth />}>
+          <Route path="profile" element={<ProfileLayout />}>
+            <Route index element={<ProfilePage />} />
+            <Route path="settings" element={<SettingPage />} />
+            <Route path="chats" element={<ChatsPage />} />
+            <Route path="materials" element={<MaterialsPage />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

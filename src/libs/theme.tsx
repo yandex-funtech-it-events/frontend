@@ -286,7 +286,7 @@ const theme = createTheme({
     button: {
       fontFamily: ['Roboto', 'sans-serif'].join(','),
     },
-    caption: {
+    overline: {
       fontWeight: 900,
       fontSize: '68px',
       lineHeight: '120%',

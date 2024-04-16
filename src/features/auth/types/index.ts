@@ -1,13 +1,16 @@
 import * as yup from 'yup';
-import { infoFormSchema } from '../libs/validation';
+import { infoFormSchema, loginFormSchema } from '../libs/validation';
 
 export type InfoFormType = yup.InferType<typeof infoFormSchema>;
 
 export type LoginType = {
-  name: string;
-  email: string;
+  username: string;
+  password: string;
 };
 
 export type LoginResponseType = {
+  refresh: string;
   access: string;
 };
+
+export type LoginFormType = yup.InferType<typeof loginFormSchema>;

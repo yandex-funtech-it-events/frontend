@@ -40,10 +40,10 @@ const Footer = () => {
           </Box>
 
           <Box display="flex" alignItems="center" gap={5}>
-            <Button href="/events" color="secondary">
+            <Button href="/" color="secondary">
               Предложить событие
             </Button>
-            <Button href="/help" variant="outlined">
+            <Button href="/" variant="outlined">
               Поддержка
             </Button>
           </Box>
