@@ -36,11 +36,8 @@ const EventCard = ({
   const [createFavorite] = useCreateUserFavoriteMutation();
   const [deleteFavorite] = useDeleteUserFavoriteByEventIdMutation();
   const [hover, setHover] = useState(false);
-  // const isMyFavorite = favoritesEvents.find((event) => event.event === userInfo?.id);
   const isMyFavorite = favoritesEvents.find((event) => event.event === event.id);
-  // console.log(event.id);
-  console.log({ favoritesEvents, isMyFavorite });
-  // console.log(isMyFavorite);
+
   const handleCreateFavorite = async () => {
     if (isMyFavorite) {
       await deleteFavorite(isMyFavorite.id);

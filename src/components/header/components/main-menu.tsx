@@ -7,7 +7,7 @@ const MainMenu = () => {
 
   return (
     <Box display="flex" alignItems="center" gap={7} sx={{ display: { xs: 'none', md: 'flex' } }}>
-      <Button href="/afisha" variant="link" size="large">
+      <Button href="/" variant="link" size="large">
         Афиша
       </Button>
       {!token && (
