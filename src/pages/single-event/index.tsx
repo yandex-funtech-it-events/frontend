@@ -11,6 +11,7 @@ import HowItWas from './components/how-it-was';
 import EventProgram from './components/event-program';
 import FooterTabs from './components/footer-tabs';
 import RegisterModal from './components/register-modal';
+//import { useGetEventsByIdQuery } from '../../features/event/services';
 
 const SingleEvent: React.FC = () => {
   return (

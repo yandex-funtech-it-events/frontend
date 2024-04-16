@@ -1,14 +1,18 @@
 import React from 'react';
 
 import { Box, Typography, Button } from '@mui/material';
+import { useAppSelector } from '../../../../../libs/store';
+import { eventSelectors } from '../../../../../features/event/slices';
 
 import Chips from '../../chips';
 
 const InfoAbout: React.FC = () => {
+  const event = useAppSelector(eventSelectors.getEvent);
+
   return (
     <Box>
       <Typography component="h2" variant="h3" mb={5}>
-        Дизайн выходные
+        {event?.title}
       </Typography>
       <Chips />
       <Typography
@@ -17,7 +21,7 @@ const InfoAbout: React.FC = () => {
         sx={{ height: '168px', marginBottom: '78px' }}
         mt={5}
       >
-        Описание мероприятия
+        {event?.description}
       </Typography>
 
       <Button

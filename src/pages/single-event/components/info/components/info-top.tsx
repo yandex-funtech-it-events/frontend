@@ -1,16 +1,23 @@
 import React from 'react';
 import { Box, Typography, Chip } from '@mui/material';
-import { mockInfoArray } from '../../../../../libs/constants';
+import { useAppSelector } from '../../../../../libs/store';
+import { eventSelectors } from '../../../../../features/event/slices';
 
 const InfoTop: React.FC = () => {
+  const event = useAppSelector(eventSelectors.getEvent);
+
   return (
     <Box display="flex" justifyContent="space-between" mb={25}>
       <Box display="flex" flexDirection="column" gap={6}>
-        {mockInfoArray.map((text, i) => (
-          <Typography component="span" variant="h6" key={i}>
-            {text}
-          </Typography>
-        ))}
+        <Typography component="span" variant="h6">
+          {`${event?.date_start} - ${event?.date_end}`}
+        </Typography>
+        <Typography component="span" variant="h6">
+          {event?.city}
+        </Typography>
+        <Typography component="span" variant="h6">
+          {event?.format}
+        </Typography>
       </Box>
       <Chip label="Регистрация открыта" />
     </Box>

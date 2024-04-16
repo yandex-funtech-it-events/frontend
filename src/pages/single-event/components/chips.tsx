@@ -1,16 +1,13 @@
 import React from 'react';
 
 import { Box, Chip } from '@mui/material';
-import { mockChipsArray } from '../../../libs/constants';
+import { useAppSelector } from '../../../libs/store';
+import { eventSelectors } from '../../../features/event/slices';
 
 const Chips: React.FC = () => {
-  return (
-    <Box display="flex">
-      {mockChipsArray.map((chip, i) => (
-        <Chip label={chip} key={i} />
-      ))}
-    </Box>
-  );
+  const event = useAppSelector(eventSelectors.getEvent);
+  const tags = event?.tags;
+  return <Box display="flex">{tags?.map((chip, i) => <Chip label={chip.name} key={i} />)}</Box>;
 };
 
 export default Chips;

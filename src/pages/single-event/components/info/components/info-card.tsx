@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, IconButton, Tooltip, Typography } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
-
-import pic from '../../../../../assets/images/single_event_info.png';
+import { useAppSelector } from '../../../../../libs/store';
+import { eventSelectors } from '../../../../../features/event/slices';
 
 const InfoCard: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -20,9 +20,15 @@ const InfoCard: React.FC = () => {
     }, 2000);
   };
 
+  const event = useAppSelector(eventSelectors.getEvent);
+
   return (
     <Box sx={{ padding: 0, position: 'relative' }}>
-      <img src={pic as unknown as string} alt="Usual image" style={{ display: 'block' }} />
+      <img
+        src={event?.picture}
+        alt="Usual image"
+        style={{ display: 'block', borderRadius: '16px', width: '680px', height: '680px' }}
+      />
 
       <IconButton sx={{ position: 'absolute', right: 12, top: 0 }}>
         <FavoriteBorderIcon sx={{ color: 'white' }} />

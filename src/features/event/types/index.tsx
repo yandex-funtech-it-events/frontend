@@ -1,21 +1,34 @@
 export type EventType = {
   id: number;
-  name: string;
+  title: string;
   description: string;
-  format: string;
   city: string;
-  slide: string;
-  address: string;
-  pedestrian_coordinates: string;
-  taxi_coordinates: string;
-  published_at: string;
-  registration_open_at: string;
-  registration_close_at: string;
+  format: string;
+  location: string;
+  creator: number;
+  moderator: number;
+  tags: TagType[];
+  picture: string;
+  stream_link: string;
+  registration_open: string;
+  registration_close: string;
+  date_start: string;
+  date_end: string;
+};
+
+export type TagType = {
+  id: number;
+  name: string;
+};
+
+export type ReportsType = {
+  id: number;
+  event: number;
+  speaker_photo: string;
+  topic: string;
+  short_description: string;
   start_at: string;
   end_at: string;
-  video_archive_url: string;
-  price: number;
-  creator_id: number;
-  moderation_passed: boolean;
-  moderator_id: number;
+  speaker: string;
+  position: string;
 };
