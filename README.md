@@ -13,7 +13,7 @@
 
 Сервис для участников it мероприятий.
 
-[https://meetup.ddns.net/](https://meetup.ddns.net/)
+[demo](https://exquisite-manatee-10e520.netlify.app/)
 
 ## Авторы проекта <a id="authors"></a>
 
